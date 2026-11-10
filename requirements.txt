@@ -1,4 +1,4 @@
-# P0 local environment, pinned to the versions actually installed in .venv.
+# Shotsmith Python dependencies, pinned for reproducible client environments.
 # Install only into the project environment:
 #   py -3.12 -m venv .venv
 #   .\.venv\Scripts\python.exe -m pip install -r requirements.txt

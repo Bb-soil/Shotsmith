@@ -1,0 +1,11 @@
+Shotsmith
+Copyright 2026 Bb-soil and Shotsmith contributors.
+
+Shotsmith original application code and documentation are licensed under the
+Apache License, Version 2.0. See LICENSE.
+
+Third-party dependencies, model weights, external runtimes and material derived
+from upstream workflows retain their respective license terms and attribution.
+See THIRD_PARTY_NOTICES.md and the provenance manifests shipped in this repository.
+Demo images, animations and videos are showcase material and are not covered by
+the Apache-2.0 grant for application code and documentation.

@@ -1,115 +1,127 @@
 # Shotsmith
 
-**Режиссура AI-сцен из терминала: референсы → кадры A/B → анимация → готовый ролик.**
+**Direct AI video scenes from your terminal: references → A/B keyframes → animation → assembled clips.**
 
-Shotsmith объединяет подготовку визуальных сцен и работу с собственным GPU-сервером в одном консольном приложении. Вместо отдельных ручных операций в нескольких инструментах — проект с референсами, опорными кадрами, версиями и последовательностью видеосцен.
+[English](README.md) · [Русский](README.ru.md)
 
-![Две связанные аниме-сцены, созданные через ComfyUI](docs/media/demo.gif)
+Shotsmith brings reference-based scene planning, a remote GPU installer, keyframe generation and video assembly into one terminal application. Keep your inputs, frame versions, approvals and video jobs together while using your own GPU server.
 
-[Смотреть демонстрационный ролик в MP4](docs/media/two-scenes-demo.mp4)
+![Two connected anime scenes produced through ComfyUI](docs/media/demo.gif)
 
-В демонстрации — две связанные сцены с одной героиней. Движение создаётся моделью между начальным и конечным кадром; это не переход с растворением между двумя картинками. Пример получен через ComfyUI на арендованной RTX 4090. Раскадровка и визуальная приёмка остаются творческой частью процесса.
+[Watch the two-scene demo in MP4](docs/media/two-scenes-demo.mp4)
 
-## Возможности
+The demo follows one character across two shots. Each shot is generated between a start frame and an end frame using Wan 2.2 through ComfyUI on an RTX 4090. The animation is model-generated, rather than a crossfade between still images. The demo has no audio.
 
-- **Терминальный интерфейс:** поле ввода, slash-команды, история, автодополнение и прогресс установки.
-- **Свой GPU по SSH:** подключение сервера, подтверждение host key, диагностика и управляемый локальный туннель к ComfyUI.
-- **Установка окружения:** закреплённая версия ComfyUI, профили моделей, проверка размера и SHA256, частичные загрузки и восстановление после обрыва. До двух моделей скачиваются параллельно.
-- **Проекты и референсы:** описание сцен, изображения персонажей, существ, окружения и стиля; отдельные состояния начала и конца сцены.
-- **Опорные кадры:** Qwen Image Edit 2511, покадровые референсы, версии, локальная HTML-раскадровка и одобрение точного изображения перед зависимой генерацией.
-- **Видео A → B:** Wan 2.2 I2V 14B high/low-noise, описание движения, сохранение параметров и входов, проверка полученного MP4.
-- **Сборка сцен:** локальный монтаж принятых клипов через FFmpeg с сохранением порядка и manifest результата.
-- **Контроль исполнения:** явная отправка заданий, сохранённый intent, восстановление по prompt/history и защита от повторной отправки при неопределённом ответе.
+## The terminal application
 
-## Быстрый старт
+![Shotsmith terminal help, including frame generation and approval commands](docs/media/terminal-help.png)
 
-Нужны Windows, PowerShell 5.1 или новее, Python 3.12, OpenSSH Client. Для полноэкранного интерфейса нужен .NET 10 SDK; для локальной проверки и сборки видео — FFmpeg в `PATH` или переменной `SHOTSMITH_FFMPEG`. GPU нужен на удалённом Linux-сервере, а не обязательно на пользовательском компьютере.
+*Rendered from an actual offline application screen dump. The current application interface is in Russian; documentation is available in English and Russian. This view shows commands, not a simulated GPU run.*
+
+## What it does
+
+- **Terminal workspace:** command input, history, completion and installation progress.
+- **Bring your GPU:** SSH connections, host-key verification, environment inspection and an owned localhost tunnel to ComfyUI.
+- **Install the runtime:** pinned ComfyUI and model profiles, size/SHA256 checks, partial downloads, recovery and up to two concurrent model downloads.
+- **Organize a project:** import character, creature, environment and style references; define separate start and end states for each scene.
+- **Generate keyframes:** Qwen Image Edit 2511, per-frame reference selection, version history, an HTML storyboard and exact-image approval before dependent frames.
+- **Animate A → B:** Wan 2.2 I2V 14B high/low-noise experts, motion instructions and saved inputs and execution parameters.
+- **Assemble scenes:** combine accepted clips locally with FFmpeg and retain a result manifest.
+- **Recover deliberately:** durable submit intent, prompt/history tracking and no automatic duplicate submission when an earlier request has an uncertain outcome.
+
+## Try it without renting a GPU
+
+You can explore project authoring and local diagnostics before connecting a server. The published demo and terminal view above require no installation.
+
+Use **Windows, PowerShell 5.1 or later, Python 3.12 and OpenSSH Client**. Building the fullscreen TUI requires **.NET 10 SDK**. FFmpeg is needed for local video validation and assembly; put it in `PATH` or set `SHOTSMITH_FFMPEG`.
 
 ```powershell
 git clone https://github.com/Bb-soil/Shotsmith.git
 Set-Location Shotsmith
-
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 
+# Local project authoring; no GPU or cloud account required.
+.\avs.ps1 project create
+.\avs.ps1 video doctor
+```
+
+`video doctor` reports a local blocker if FFmpeg is missing; it does not rent a server or download software.
+
+### Fullscreen terminal UI
+
+```powershell
 dotnet restore ui/Shotsmith/Shotsmith.csproj --locked-mode
 dotnet publish ui/Shotsmith/Shotsmith.csproj -c Release -r win-x64 --self-contained true -o data/app/shotsmith-complete
-
 .\shotsmith.ps1
 ```
 
-Без сборки .NET доступна обычная консольная оболочка и команды `avs.ps1`. Локальная диагностика не требует аренды:
+Without the .NET build, the Python console shell and the `avs.ps1` subcommands remain available.
 
-```powershell
-.\avs.ps1 video doctor
-.\avs.ps1 project create
-```
-
-## Работа в приложении
+## A typical production session
 
 ```text
-/new          создать проект и импортировать референсы
-/projects     выбрать сохранённый проект
-/edit         редактировать проект
-/prepare      проверить и подготовить план
-/connect      подключить GPU-сервер по SSH
-/profile      выбрать bundle или qwen
-/inspect      проверить окружение
-/install      предварительный просмотр установки
-/install --execute
-/status       состояние подключения и установки
-/resume       продолжить существующую установку
-/frames       сгенерировать и экспортировать опорные кадры
-/approve      одобрить точную версию кадра
-/storyboard   открыть экспорт раскадровки
-/video        создать и выполнить видеозадание
-/assemble     собрать принятые сцены
-/outputs      сохранённые результаты
-/help         справка
+/new                  Create a project and import references
+/projects             Select a saved project
+/edit                 Edit scene states and references
+/prepare              Validate and compile the execution plan
+/connect              Connect your Linux GPU server over SSH
+/profile bundle       Select Wan + Qwen (or /profile qwen for keyframes)
+/inspect              Inspect the server environment
+/install              Preview the installation
+/install --execute    Install after explicit confirmation
+/status               Inspect installation and connection state
+/resume               Resume the existing installation attempt
+/frames               Generate, retry or export keyframes
+/approve              Approve an exact frame version
+/storyboard           Export the local storyboard
+/video                Create, approve and execute a video job
+/assemble             Assemble accepted clips
+/outputs              Find saved results
+/help                 Command reference
 ```
 
-Команды с генерацией требуют отдельного подтверждения. Сначала проверяется раскадровка, затем запускается анимация: дефектный опорный кадр не стоит переносить в дорогостоящий видеорендер.
+Review the storyboard before spending GPU time on animation. Installation and generation require explicit confirmation. `/disconnect` and exiting Shotsmith **do not cancel your GPU rental**.
 
-## Модели и окружение
+## Models and hardware
 
-- **Кадры:** Qwen Image Edit 2511, text encoder Qwen 2.5 VL и Qwen Image VAE.
-- **Анимация:** Wan 2.2 I2V 14B, два FP8-эксперта high/low-noise, UMT5 и Wan VAE.
-- **Исполнение:** ComfyUI с закреплённым commit, API workflows и проверкой совместимости классов и входов.
-- **Интерфейс:** C# / Terminal.Gui; проект, установка и задания — Python; вход — PowerShell.
+- **Keyframes:** Qwen Image Edit 2511, Qwen 2.5 VL text encoder and Qwen Image VAE.
+- **Video:** Wan 2.2 I2V 14B FP8 high/low-noise experts, UMT5 and Wan VAE.
+- **Runtime:** ComfyUI with pinned revisions, API graphs and compatibility checks.
+- **Client:** C# / Terminal.Gui, Python orchestration and PowerShell entry points.
 
-Объединённый профиль содержит примерно **61.2 GiB весов**; установщик рассчитывает дополнительный запас диска. Практические эксперименты проводились на RTX 4090 24 GB и RTX 5090 32 GB. Вместимость и скорость зависят от выбранной сцены и окружения. Профили находятся в `config/i1/`, графы — в `workflows/`.
+The combined profile downloads approximately **61.2 GiB of weights**, plus installation overhead and disk reserve. The keyframe-only profile avoids downloading the Wan video models. Experiments have used RTX 4090 24 GB and RTX 5090 32 GB servers; actual memory use and speed depend on the scene and runtime. Model files and GPU rental are not included.
 
-## Как устроен проект
+## Repository guide
 
-- `ui/Shotsmith/` — полноэкранный терминальный интерфейс.
-- `scripts/i1/` — SSH-подключения, установка, состояние и восстановление.
-- `scripts/kf2/` — создание и подготовка пользовательского проекта.
-- `scripts/kf1/` — генерация кадров, версии, одобрения и раскадровка.
-- `scripts/video/` — видеопланы, исполнение, проверка MP4 и сборка.
-- `anime_studio/` — общие компоненты транспорта и workflow.
-- `tests/` — тесты и публичные fixtures.
-- `docs/` — инструкция и демонстрационные материалы.
+- `ui/Shotsmith/` — fullscreen TUI.
+- `scripts/i1/` — SSH connections, installation and recovery.
+- `scripts/kf2/` — project authoring and plan preparation.
+- `scripts/kf1/` — keyframe generation, versions, approvals and storyboards.
+- `scripts/video/` — video jobs, validation and local assembly.
+- `anime_studio/` — shared runtime and workflow components.
+- `config/i1/` and `workflows/` — pinned profiles and API graphs.
 
-## Статус
+Internal stage identifiers and `avs.ps1` remain for compatibility with existing plans and scripts. Use `shotsmith.ps1` as the application entry point. See [architecture](docs/ARCHITECTURE.md).
 
-Shotsmith — развивающийся авторский проект для производства коротких AI-сцен. Подключение, установка, генерация кадров и анимация применялись в реальных GPU-экспериментах; сквозная оболочка объединяет эти инструменты. Визуальная приёмка обязательна: модель может менять лицо, анатомию, композицию и детали окружения.
+## Development and feedback
 
-Текущий видеопуть работает без звука; смешивание разных FPS/геометрии при сборке блокируется. GPU-сервер пользователь выбирает и оплачивает самостоятельно. `/disconnect` и выход из приложения **не завершают аренду**.
+This is an actively developed authoring tool. SSH installation, keyframe generation and animation have been exercised in real GPU experiments. Visual review remains part of the workflow: a model may change identity, anatomy or composition. The current video path is silent; assembly rejects mismatched frame rates or geometry. Shotsmith is a local client, not a hosted multi-user service.
 
-Это локальный инструмент для автора, а не многопользовательский облачный сервис. В репозиторий не включены веса моделей, ключи, рабочие подключения, пользовательские проекты и внутренние журналы разработки.
+Feedback on installation, error messages, reference handling and scene continuity is welcome through [GitHub Issues](https://github.com/Bb-soil/Shotsmith/issues). Include the command, expected behavior and a redacted error message; do not upload keys, tokens or private connection state.
 
-## Проверки
+### Public smoke tests
 
-Код сопровождается unit, contract и offline integration тестами. Они проверяют состояние заданий, восстановление, привязку входов и файлов, работу с изображениями и видео. Такие тесты не заменяют художественную оценку результата на GPU. В публичной копии не распространяются приватные исторические evidence и fixtures с данными реальных аренд.
-
-Быстрая offline-проверка основных команд и видеопайплайна (для видеопроверок установите FFmpeg):
+With FFmpeg installed:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest tests/test_video_app.py tests/test_console_shell.py -q -o addopts=
 ```
 
-На подготовленной публичной копии: **38 passed**. Полный внутренний архив тестов связан с историческими проектами и evidence; команда выше проверяет переносимый публичный набор.
+This public smoke set passed **38 tests** during publication preparation. Historical tests may depend on private evidence and project fixtures that are intentionally not distributed. Tests verify execution behavior, not artistic quality.
 
-## Права и сторонние компоненты
+## License
 
-Исходный код опубликован для знакомства с проектом и портфолио. Отдельная open-source лицензия на авторский код пока не предоставлена; публикация не означает разрешения на его коммерческое перераспространение. Сторонние компоненты и модели регулируются собственными лицензиями. См. [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Shotsmith's original application code and documentation are licensed under **Apache-2.0**. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+
+External runtimes, models, dependencies and upstream-derived workflow material retain their own license terms. Model weights and FFmpeg binaries are not bundled. Demo media is provided to showcase the project and is not covered by the application-code license. See [third-party notices](THIRD_PARTY_NOTICES.md).

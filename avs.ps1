@@ -1,4 +1,4 @@
-﻿# Anime Video Studio - I1 console entry point.
+﻿# Shotsmith PowerShell command entry point (legacy AVS alias).
 # Works in Windows PowerShell 5.1 and PowerShell 7. No secrets in argv.
 [CmdletBinding()]
 param(
