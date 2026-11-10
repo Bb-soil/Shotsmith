@@ -1,0 +1,116 @@
+{
+  "schema": "anime-video-studio/p1-manifest/v1",
+  "manifest_id": "P1-WAN22-5B-SHOT01-20261021-DRAFT",
+  "status": "DRAFT",
+  "container": {
+    "image": "runpod/pytorch:1.4.1-cu1281-torch291-ubuntu2404",
+    "digest": "sha256:8ab44dd05aad6ecc18e77814a20f7fb0ee706c4696663cf1bf912b0f5b457e9f",
+    "registry_metadata_url": "https://hub.docker.com/v2/repositories/runpod/pytorch/tags/1.4.1-cu1281-torch291-ubuntu2404",
+    "architecture": "linux/amd64",
+    "compressed_bytes": 11926727128,
+    "verification_scope": "registry metadata only; image not pulled or executed"
+  },
+  "comfyui": {
+    "commit": "7a28332047b6af638dc6c7f72ef3481a718769fd",
+    "source_url": "https://github.com/Comfy-Org/ComfyUI",
+    "license": "GPL-3.0",
+    "runtime_import_verified": false
+  },
+  "custom_nodes": [],
+  "workflow": {
+    "path": "workflows/P1/wan22-5b-shot01.api.draft.json",
+    "sha256": "abac4f35c05f22e0d8d517bdc569bee8f7419e48c81753c90ad8eedf310b2576",
+    "source_template_commit": "e7cd011d4ded3411c2f481200544f0be6fdc962e",
+    "api_status": "MANUAL_ADAPTATION_SOURCE_CHECKED_NOT_RUN"
+  },
+  "models": [
+    {
+      "id": "wan22-ti2v-5b-fp16",
+      "role": "diffusion",
+      "repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+      "revision": "ee6f4a40737a995bf5818954cfce6d59443b0f04",
+      "filename": "split_files/diffusion_models/wan2.2_ti2v_5B_fp16.safetensors",
+      "sha256": "456f901338bd9eadbded3828b819109a9b68e8a525ca5cf8d0049a69fcfeca1e",
+      "size_bytes": 9999658848,
+      "target": "models/diffusion_models/wan2.2_ti2v_5B_fp16.safetensors",
+      "source_url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/blob/ee6f4a40737a995bf5818954cfce6d59443b0f04/split_files/diffusion_models/wan2.2_ti2v_5B_fp16.safetensors",
+      "download_url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/ee6f4a40737a995bf5818954cfce6d59443b0f04/split_files/diffusion_models/wan2.2_ti2v_5B_fp16.safetensors",
+      "license_url": "https://github.com/Wan-Video/Wan2.2/blob/1ea34ff48f87168174e12956e200b1d908b1c5ff/LICENSE.txt",
+      "license": "Apache-2.0",
+      "license_reviewed_at": "2026-10-21",
+      "hosted_use": "allowed",
+      "commercial_use_status": "allowed",
+      "verification_scope": "public_metadata_and_license_only; bytes not downloaded"
+    },
+    {
+      "id": "wan22-vae",
+      "role": "vae",
+      "repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+      "revision": "ee6f4a40737a995bf5818954cfce6d59443b0f04",
+      "filename": "split_files/vae/wan2.2_vae.safetensors",
+      "sha256": "e40321bd36b9709991dae2530eb4ac303dd168276980d3e9bc4b6e2b75fed156",
+      "size_bytes": 1409400960,
+      "target": "models/vae/wan2.2_vae.safetensors",
+      "source_url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/blob/ee6f4a40737a995bf5818954cfce6d59443b0f04/split_files/vae/wan2.2_vae.safetensors",
+      "download_url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/ee6f4a40737a995bf5818954cfce6d59443b0f04/split_files/vae/wan2.2_vae.safetensors",
+      "license_url": "https://github.com/Wan-Video/Wan2.2/blob/1ea34ff48f87168174e12956e200b1d908b1c5ff/LICENSE.txt",
+      "license": "Apache-2.0",
+      "license_reviewed_at": "2026-10-21",
+      "hosted_use": "allowed",
+      "commercial_use_status": "allowed",
+      "verification_scope": "public_metadata_and_license_only; bytes not downloaded"
+    },
+    {
+      "id": "umt5-xxl-fp8-scaled",
+      "role": "text_encoder",
+      "repo": "Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+      "revision": "123acf1cc74bccbb9bfff8ac1ee72edc08c2341d",
+      "filename": "split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "sha256": "c3355d30191f1f066b26d93fba017ae9809dce6c627dda5f6a66eaa651204f68",
+      "size_bytes": 6735906897,
+      "target": "models/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "source_url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/blob/123acf1cc74bccbb9bfff8ac1ee72edc08c2341d/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "download_url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/123acf1cc74bccbb9bfff8ac1ee72edc08c2341d/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "license_url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/blob/123acf1cc74bccbb9bfff8ac1ee72edc08c2341d/README.md",
+      "license": "Apache-2.0",
+      "license_reviewed_at": "2026-10-21",
+      "hosted_use": "allowed",
+      "commercial_use_status": "allowed",
+      "verification_scope": "public_metadata_and_license_only; bytes not downloaded"
+    }
+  ],
+  "runtime": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "vram_gb": 24,
+    "ram_gb": 40,
+    "container_disk_gb": 50,
+    "network_volume_gb": 80,
+    "estimated": true,
+    "dependencies_frozen": false
+  },
+  "live_plan": {
+    "source_image": "assets/frames/shot-01-start-v2.png",
+    "source_image_sha256": "83f5a79b9acb3b576033b231d76a09065f20121f415ddc6ec08e137c5a801d20",
+    "width": 704,
+    "height": 1280,
+    "frames": 121,
+    "fps": 24,
+    "duration_seconds": 5.041666666666667,
+    "seed": 424242,
+    "generations": 1,
+    "automatic_retries": 0,
+    "max_session_minutes": 60,
+    "max_render_minutes": 30,
+    "max_model_setup_minutes": 25,
+    "proposed_budget_cap_rub": 500,
+    "spending_approved": false,
+    "network_volume_retention_days_proposed": 7
+  },
+  "checked_at": "2026-10-21",
+  "readiness_notes": [
+    "Keep DRAFT until runtime dependencies and /object_info verified; public metadata alone is not live readiness.",
+    "Core-only custom_nodes=[] is a valid pinned graph; the manifest gate now accepts explicitly empty lists while missing/null/non-list values remain blocked. Runtime dependencies and /object_info are still unverified, so status stays DRAFT.",
+    "No worker, GPU, model download or payment has run.",
+    "A process watchdog stopping ComfyUI does not stop provider GPU billing; external Pod stop and storage accounting required."
+  ]
+}

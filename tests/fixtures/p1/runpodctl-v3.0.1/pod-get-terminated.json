@@ -1,0 +1,14 @@
+{
+  "id": "pod-abc123",
+  "name": "fixture-terminated",
+  "desiredStatus": "TERMINATED",
+  "createdAt": "2026-10-21 12:00:00.5 +0000 UTC",
+  "imageName": "fixture/image:1",
+  "gpuCount": 1,
+  "volumeInGb": 0,
+  "containerDiskInGb": 20,
+  "runtimeStatus": "terminated",
+  "ssh": {
+    "error": "pod not ready: pod is terminated"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "official_workflow_url": "https://docs.comfy.org/tutorials/image/qwen/qwen-image-edit-2511",
+  "template_commit": "14220b8bd3e86baa852959f17039613191e66656",
+  "template_path": "templates/image_qwen_image_edit_2511.json",
+  "node_schema_source": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/7a28332047b6af638dc6c7f72ef3481a718769fd/comfy_extras/nodes_qwen.py",
+  "adaptation": [
+    "Flattened native non-turbo path into API graph; no optional Lightning LoRA/switches.",
+    "Official non-turbo settings: 40 steps, CFG4, Euler/simple, shift3.1.",
+    "Image1 normalization changed to explicit 704x1280 center crop; geometry policy must be previewed and recorded.",
+    "FP8 mixed model from official Comfy-Org inventory, text encoder CPU.",
+    "Reference-method auxiliary nodes omitted per template note for Comfy repackaged models."
+  ],
+  "verification": {
+    "json_parse": true,
+    "graph_links_exist": true,
+    "TextEncodeQwenImageEditPlus_source_supports_up_to_3_images": true,
+    "all_node_schemas_checked": false,
+    "GPU": false,
+    "binary_hashes": false
+  },
+  "note": "Draft graphs are preparation artifacts, not a ready-to-run or quality-accepted workflow."
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "anime-studio/keyframe-plan-example/v1",
+  "status": "DRAFT_NOT_EXECUTABLE_UNTIL_VALIDATED",
+  "title": "Героиня и закаулок — две связанные сцены",
+  "language": "ru",
+  "first_frame": "assets/frames/derived/shot-01-start-v3-704x1280.png",
+  "character_reference": "assets/references/character-sheet.png",
+  "background_reference": null,
+  "style": "Минималистичная аниме-героиня из референса, без новых аксессуаров. Сохранить стиль исходного кадра.",
+  "scenes": [
+    {
+      "id": "shot-01",
+      "description": "Героиня останавливается, поворачивает голову к камере и удивляется. Плавный ветер сзади подхватывает волосы, к концу затихает.",
+      "a": {
+        "source": "first_frame"
+      },
+      "b": {
+        "source": "generate_from_scene_a",
+        "edit_instruction": "Keep the exact camera, background, body scale, clothes and anime drawing style of Picture 1. The same heroine has just turned her head toward the camera. Show a restrained but clearly readable surprised expression: slightly raised eyebrows, wider eyes and a small relaxed parted mouth, not a scream. A gentle breeze from behind has lifted several long hair strands into a shallow smooth arc. Keep the body balanced and the neck naturally short. This is one ending keyframe, not a sequence or collage."
+      }
+    },
+    {
+      "id": "shot-02",
+      "description": "Неподвижная камера из тёмного переулка смотрит на светлую улицу. Героиня стоит на дороге, затем идёт внутрь и приближается к камере.",
+      "a": {
+        "source": "generate_from_previous_b",
+        "edit_instruction": "Create a new shot of the same heroine using Picture 1 for continuity and Picture 2 for identity and clothes. Place the fixed camera inside a narrow shaded alley looking outward toward the sunny Japanese residential street. The heroine is full body, upright and standing on the road OUTSIDE the alley entrance. She looks into the alley with the same restrained surprise. Show natural proportions and her loafers on the asphalt. No camera tilt, no seated pose, no duplicated figure."
+      },
+      "b": {
+        "source": "generate_from_scene_a",
+        "edit_instruction": "Keep precisely the same fixed camera position, lens perspective, alley walls and distant street as Picture 1. The same upright heroine has walked from the road into the alley toward this camera, and is now much closer: her apparent head and body scale must increase, not shrink. Show a natural forward walking step with weight over the supporting foot, relaxed arms, short natural neck and unchanged outfit. The close body can extend beyond the lower image edge; do not crouch, sit, lower the camera, tilt it upward or zoom the background. Keep her surprised mouth shape small and still."
+      }
+    }
+  ],
+  "output_policy": {
+    "candidate_geometry": [
+      704,
+      1280
+    ],
+    "video_geometry": [
+      448,
+      816
+    ],
+    "normalization": "explicit proportional crop or contain, never stretch",
+    "overwrite_inputs": false,
+    "automatic_video_submit": false
+  },
+  "generation_limit": 3,
+  "retry_policy": "explicit owner frame retry only"
+}

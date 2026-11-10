@@ -1,0 +1,58 @@
+{
+  "status": "OFFLINE_DRAFT_NOT_GPU_VERIFIED",
+  "source_commit": "e7cd011d4ded3411c2f481200544f0be6fdc962e",
+  "source_url": "https://raw.githubusercontent.com/Comfy-Org/workflow_templates/e7cd011d4ded3411c2f481200544f0be6fdc962e/templates/video_wan2_2_14B_flf2v.json",
+  "source_raw_sha256": "0325fe7832674530deed833c2baab73c4bcac7629faa0a9790dfd74e2336fe2b",
+  "width": 448,
+  "height": 816,
+  "frames": 81,
+  "fps": 16,
+  "duration_seconds": 5.0625,
+  "models": [
+    {
+      "name": "wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+      "directory": "diffusion_models"
+    },
+    {
+      "name": "wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+      "directory": "diffusion_models"
+    },
+    {
+      "name": "wan_2.1_vae.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors",
+      "directory": "vae"
+    },
+    {
+      "name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "directory": "text_encoders"
+    }
+  ],
+  "assets": [
+    {
+      "path": "assets/frames/derived/shot-01-start-v3-704x1280.png",
+      "sha256": "925eccbe02a49b74bd2e8cd190fe26bd9557628bb996149f093b894136c53add"
+    },
+    {
+      "path": "assets/frames/shot-01-keyframe-B-v1.png",
+      "sha256": "8c1b9a20fb224fe4803e825b78f0334b0293851a48fbaff33eec579ee1d3e0f6"
+    }
+  ],
+  "files": {
+    "workflows\\P1\\reference\\wan22-14b-flf2v.e7cd011.ui.json": "77406bd905455fd600677cedabc686bfce25e0b7f746c08954b0a2664c1eed58",
+    "workflows\\P1\\wan22-14b-shot01-ab-v1.ui.draft.json": "2f005ad2eace143e2faa87eedfd182847a7527450356f89310a150ce564f6d82",
+    "workflows\\P1\\wan22-14b-shot01-ab-v1.api.draft.json": "365dcd7c1c9f3b191e625e82d3cacedaa8145774a63a399ad4f4ddee71d456ed"
+  },
+  "unverified": [
+    "actual object_info/schema binding",
+    "model revision/checksums",
+    "license review of selected weights",
+    "GPU VRAM/time/cost",
+    "exact final-frame reproduction and background stability",
+    "owner visual acceptance of B"
+  ],
+  "positive_prompt": "She smoothly turns her head toward the camera. As she turns, her eyebrows rise, her eyes widen and her lips part in surprise, arriving at the expression in the final image. Her shoulders stay in place. Her hair hangs naturally. Continuous movement, fixed camera and background.",
+  "negative_prompt": "abrupt head snap, face morphing, identity change, body rotation, screaming, talking, camera movement, zoom, cuts, flicker, text, watermark"
+}

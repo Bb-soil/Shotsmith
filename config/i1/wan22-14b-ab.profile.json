@@ -1,0 +1,635 @@
+{
+  "base_torch": {
+    "expected_cuda_prefix": "12.8",
+    "expected_prefix": "2.9",
+    "image": "runpod/pytorch:1.4.1-cu1281-torch291-ubuntu2404",
+    "never_reinstall": true
+  },
+  "comfyui": {
+    "commit": "7a28332047b6af638dc6c7f72ef3481a718769fd",
+    "expected_imports": [
+      "comfy",
+      "nodes"
+    ],
+    "source_url": "https://github.com/Comfy-Org/ComfyUI"
+  },
+  "disk": {
+    "install_overhead_bytes": 6442450944,
+    "reserve_bytes": 5368709120
+  },
+  "display_name": "Wan 2.2 14B A→B (FP8, native FLF2V)",
+  "graph_inputs": [
+    {
+      "class": "CLIPLoader",
+      "input": "clip_name",
+      "kind": "literal",
+      "node_id": "72"
+    },
+    {
+      "class": "CLIPLoader",
+      "input": "device",
+      "kind": "literal",
+      "node_id": "72"
+    },
+    {
+      "class": "CLIPLoader",
+      "input": "type",
+      "kind": "literal",
+      "node_id": "72"
+    },
+    {
+      "class": "ModelSamplingSD3",
+      "input": "model",
+      "kind": "link",
+      "node_id": "73",
+      "source_class": "UNETLoader",
+      "source_node": "76",
+      "source_slot": 0
+    },
+    {
+      "class": "ModelSamplingSD3",
+      "input": "shift",
+      "kind": "literal",
+      "node_id": "73"
+    },
+    {
+      "class": "ModelSamplingSD3",
+      "input": "model",
+      "kind": "link",
+      "node_id": "74",
+      "source_class": "UNETLoader",
+      "source_node": "77",
+      "source_slot": 0
+    },
+    {
+      "class": "ModelSamplingSD3",
+      "input": "shift",
+      "kind": "literal",
+      "node_id": "74"
+    },
+    {
+      "class": "UNETLoader",
+      "input": "unet_name",
+      "kind": "literal",
+      "node_id": "76"
+    },
+    {
+      "class": "UNETLoader",
+      "input": "weight_dtype",
+      "kind": "literal",
+      "node_id": "76"
+    },
+    {
+      "class": "UNETLoader",
+      "input": "unet_name",
+      "kind": "literal",
+      "node_id": "77"
+    },
+    {
+      "class": "UNETLoader",
+      "input": "weight_dtype",
+      "kind": "literal",
+      "node_id": "77"
+    },
+    {
+      "class": "CLIPTextEncode",
+      "input": "clip",
+      "kind": "link",
+      "node_id": "78",
+      "source_class": "CLIPLoader",
+      "source_node": "72",
+      "source_slot": 0
+    },
+    {
+      "class": "CLIPTextEncode",
+      "input": "text",
+      "kind": "literal",
+      "node_id": "78"
+    },
+    {
+      "class": "VAELoader",
+      "input": "vae_name",
+      "kind": "literal",
+      "node_id": "79"
+    },
+    {
+      "class": "LoadImage",
+      "input": "image",
+      "kind": "literal",
+      "node_id": "80"
+    },
+    {
+      "class": "WanFirstLastFrameToVideo",
+      "input": "batch_size",
+      "kind": "literal",
+      "node_id": "81"
+    },
+    {
+      "class": "WanFirstLastFrameToVideo",
+      "input": "end_image",
+      "kind": "link",
+      "node_id": "81",
+      "source_class": "LoadImage",
+      "source_node": "89",
+      "source_slot": 0
+    },
+    {
+      "class": "WanFirstLastFrameToVideo",
+      "input": "height",
+      "kind": "literal",
+      "node_id": "81"
+    },
+    {
+      "class": "WanFirstLastFrameToVideo",
+      "input": "length",
+      "kind": "literal",
+      "node_id": "81"
+    },
+    {
+      "class": "WanFirstLastFrameToVideo",
+      "input": "negative",
+      "kind": "link",
+      "node_id": "81",
+      "source_class": "CLIPTextEncode",
+      "source_node": "78",
+      "source_slot": 0
+    },
+    {
+      "class": "WanFirstLastFrameToVideo",
+      "input": "positive",
+      "kind": "link",
+      "node_id": "81",
+      "source_class": "CLIPTextEncode",
+      "source_node": "90",
+      "source_slot": 0
+    },
+    {
+      "class": "WanFirstLastFrameToVideo",
+      "input": "start_image",
+      "kind": "link",
+      "node_id": "81",
+      "source_class": "LoadImage",
+      "source_node": "80",
+      "source_slot": 0
+    },
+    {
+      "class": "WanFirstLastFrameToVideo",
+      "input": "vae",
+      "kind": "link",
+      "node_id": "81",
+      "source_class": "VAELoader",
+      "source_node": "79",
+      "source_slot": 0
+    },
+    {
+      "class": "WanFirstLastFrameToVideo",
+      "input": "width",
+      "kind": "literal",
+      "node_id": "81"
+    },
+    {
+      "class": "SaveVideo",
+      "input": "filename_prefix",
+      "kind": "literal",
+      "node_id": "83"
+    },
+    {
+      "class": "SaveVideo",
+      "input": "format",
+      "kind": "literal",
+      "node_id": "83"
+    },
+    {
+      "class": "SaveVideo",
+      "input": "format.codec",
+      "kind": "dynamic",
+      "node_id": "83"
+    },
+    {
+      "class": "SaveVideo",
+      "input": "format.codec.encoding",
+      "kind": "dynamic",
+      "node_id": "83"
+    },
+    {
+      "class": "SaveVideo",
+      "input": "video",
+      "kind": "link",
+      "node_id": "83",
+      "source_class": "CreateVideo",
+      "source_node": "86",
+      "source_slot": 0
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "add_noise",
+      "kind": "literal",
+      "node_id": "84"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "cfg",
+      "kind": "literal",
+      "node_id": "84"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "end_at_step",
+      "kind": "literal",
+      "node_id": "84"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "latent_image",
+      "kind": "link",
+      "node_id": "84",
+      "source_class": "WanFirstLastFrameToVideo",
+      "source_node": "81",
+      "source_slot": 2
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "model",
+      "kind": "link",
+      "node_id": "84",
+      "source_class": "ModelSamplingSD3",
+      "source_node": "73",
+      "source_slot": 0
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "negative",
+      "kind": "link",
+      "node_id": "84",
+      "source_class": "WanFirstLastFrameToVideo",
+      "source_node": "81",
+      "source_slot": 1
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "noise_seed",
+      "kind": "literal",
+      "node_id": "84"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "positive",
+      "kind": "link",
+      "node_id": "84",
+      "source_class": "WanFirstLastFrameToVideo",
+      "source_node": "81",
+      "source_slot": 0
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "return_with_leftover_noise",
+      "kind": "literal",
+      "node_id": "84"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "sampler_name",
+      "kind": "literal",
+      "node_id": "84"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "scheduler",
+      "kind": "literal",
+      "node_id": "84"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "start_at_step",
+      "kind": "literal",
+      "node_id": "84"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "steps",
+      "kind": "literal",
+      "node_id": "84"
+    },
+    {
+      "class": "VAEDecode",
+      "input": "samples",
+      "kind": "link",
+      "node_id": "85",
+      "source_class": "KSamplerAdvanced",
+      "source_node": "87",
+      "source_slot": 0
+    },
+    {
+      "class": "VAEDecode",
+      "input": "vae",
+      "kind": "link",
+      "node_id": "85",
+      "source_class": "VAELoader",
+      "source_node": "79",
+      "source_slot": 0
+    },
+    {
+      "class": "CreateVideo",
+      "input": "fps",
+      "kind": "literal",
+      "node_id": "86"
+    },
+    {
+      "class": "CreateVideo",
+      "input": "images",
+      "kind": "link",
+      "node_id": "86",
+      "source_class": "VAEDecode",
+      "source_node": "85",
+      "source_slot": 0
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "add_noise",
+      "kind": "literal",
+      "node_id": "87"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "cfg",
+      "kind": "literal",
+      "node_id": "87"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "end_at_step",
+      "kind": "literal",
+      "node_id": "87"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "latent_image",
+      "kind": "link",
+      "node_id": "87",
+      "source_class": "KSamplerAdvanced",
+      "source_node": "84",
+      "source_slot": 0
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "model",
+      "kind": "link",
+      "node_id": "87",
+      "source_class": "ModelSamplingSD3",
+      "source_node": "74",
+      "source_slot": 0
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "negative",
+      "kind": "link",
+      "node_id": "87",
+      "source_class": "WanFirstLastFrameToVideo",
+      "source_node": "81",
+      "source_slot": 1
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "noise_seed",
+      "kind": "literal",
+      "node_id": "87"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "positive",
+      "kind": "link",
+      "node_id": "87",
+      "source_class": "WanFirstLastFrameToVideo",
+      "source_node": "81",
+      "source_slot": 0
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "return_with_leftover_noise",
+      "kind": "literal",
+      "node_id": "87"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "sampler_name",
+      "kind": "literal",
+      "node_id": "87"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "scheduler",
+      "kind": "literal",
+      "node_id": "87"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "start_at_step",
+      "kind": "literal",
+      "node_id": "87"
+    },
+    {
+      "class": "KSamplerAdvanced",
+      "input": "steps",
+      "kind": "literal",
+      "node_id": "87"
+    },
+    {
+      "class": "LoadImage",
+      "input": "image",
+      "kind": "literal",
+      "node_id": "89"
+    },
+    {
+      "class": "CLIPTextEncode",
+      "input": "clip",
+      "kind": "link",
+      "node_id": "90",
+      "source_class": "CLIPLoader",
+      "source_node": "72",
+      "source_slot": 0
+    },
+    {
+      "class": "CLIPTextEncode",
+      "input": "text",
+      "kind": "literal",
+      "node_id": "90"
+    }
+  ],
+  "models": [
+    {
+      "binary_verified_at_derivation": false,
+      "id": "wan2.2_i2v_high_noise_14B_fp8_scaled",
+      "license": "apache-2.0",
+      "license_source": "https://huggingface.co/Comfy-Org/Wan-2.2/blob/ee6f4a40737a995bf5818954cfce6d59443b0f04/README.md",
+      "name": "wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+      "repo_id": "Comfy-Org/Wan-2.2",
+      "revision": "ee6f4a40737a995bf5818954cfce6d59443b0f04",
+      "role": "diffusion",
+      "sha256": "6122e79d55e0f235698d11d657f3b196c5273c830da00b2b013c5a048d5e6a42",
+      "size_bytes": 14294742832,
+      "source_path": "split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+      "target": "models/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan-2.2/resolve/ee6f4a40737a995bf5818954cfce6d59443b0f04/split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors"
+    },
+    {
+      "binary_verified_at_derivation": false,
+      "id": "wan2.2_i2v_low_noise_14B_fp8_scaled",
+      "license": "apache-2.0",
+      "license_source": "https://huggingface.co/Comfy-Org/Wan-2.2/blob/ee6f4a40737a995bf5818954cfce6d59443b0f04/README.md",
+      "name": "wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+      "repo_id": "Comfy-Org/Wan-2.2",
+      "revision": "ee6f4a40737a995bf5818954cfce6d59443b0f04",
+      "role": "diffusion",
+      "sha256": "5471a457b6ac404202a5fbe6c11595a3d5641fc766b00f38763f72303fffc21e",
+      "size_bytes": 14294742832,
+      "source_path": "split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+      "target": "models/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan-2.2/resolve/ee6f4a40737a995bf5818954cfce6d59443b0f04/split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors"
+    },
+    {
+      "binary_verified_at_derivation": false,
+      "id": "wan_2.1_vae",
+      "license": "apache-2.0",
+      "license_source": "https://huggingface.co/Comfy-Org/Wan-2.2/blob/ee6f4a40737a995bf5818954cfce6d59443b0f04/README.md",
+      "name": "wan_2.1_vae.safetensors",
+      "repo_id": "Comfy-Org/Wan-2.2",
+      "revision": "ee6f4a40737a995bf5818954cfce6d59443b0f04",
+      "role": "vae",
+      "sha256": "2fc39d31359a4b0a64f55876d8ff7fa8d780956ae2cb13463b0223e15148976b",
+      "size_bytes": 253815318,
+      "source_path": "split_files/vae/wan_2.1_vae.safetensors",
+      "target": "models/vae/wan_2.1_vae.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan-2.2/resolve/ee6f4a40737a995bf5818954cfce6d59443b0f04/split_files/vae/wan_2.1_vae.safetensors"
+    },
+    {
+      "binary_verified_at_derivation": false,
+      "id": "umt5_xxl_fp8_e4m3fn_scaled",
+      "license": "apache-2.0",
+      "license_source": "https://huggingface.co/Comfy-Org/Wan-2.1/blob/123acf1cc74bccbb9bfff8ac1ee72edc08c2341d/README.md",
+      "name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "repo_id": "Comfy-Org/Wan-2.1",
+      "revision": "123acf1cc74bccbb9bfff8ac1ee72edc08c2341d",
+      "role": "text_encoder",
+      "sha256": "c3355d30191f1f066b26d93fba017ae9809dce6c627dda5f6a66eaa651204f68",
+      "size_bytes": 6735906897,
+      "source_path": "split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "target": "models/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan-2.1/resolve/123acf1cc74bccbb9bfff8ac1ee72edc08c2341d/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors"
+    }
+  ],
+  "node_classes": {
+    "72": "CLIPLoader",
+    "73": "ModelSamplingSD3",
+    "74": "ModelSamplingSD3",
+    "76": "UNETLoader",
+    "77": "UNETLoader",
+    "78": "CLIPTextEncode",
+    "79": "VAELoader",
+    "80": "LoadImage",
+    "81": "WanFirstLastFrameToVideo",
+    "83": "SaveVideo",
+    "84": "KSamplerAdvanced",
+    "85": "VAEDecode",
+    "86": "CreateVideo",
+    "87": "KSamplerAdvanced",
+    "89": "LoadImage",
+    "90": "CLIPTextEncode"
+  },
+  "profile_id": "wan22-14b-ab",
+  "required_classes": [
+    "CLIPLoader",
+    "CLIPTextEncode",
+    "CreateVideo",
+    "KSamplerAdvanced",
+    "LoadImage",
+    "ModelSamplingSD3",
+    "SaveVideo",
+    "UNETLoader",
+    "VAEDecode",
+    "VAELoader",
+    "WanFirstLastFrameToVideo"
+  ],
+  "required_inputs": {
+    "CLIPLoader": [
+      "clip_name",
+      "device",
+      "type"
+    ],
+    "CLIPTextEncode": [
+      "clip",
+      "text"
+    ],
+    "CreateVideo": [
+      "fps",
+      "images"
+    ],
+    "KSamplerAdvanced": [
+      "add_noise",
+      "cfg",
+      "end_at_step",
+      "latent_image",
+      "model",
+      "negative",
+      "noise_seed",
+      "positive",
+      "return_with_leftover_noise",
+      "sampler_name",
+      "scheduler",
+      "start_at_step",
+      "steps"
+    ],
+    "LoadImage": [
+      "image"
+    ],
+    "ModelSamplingSD3": [
+      "model",
+      "shift"
+    ],
+    "SaveVideo": [
+      "filename_prefix",
+      "format",
+      "video"
+    ],
+    "UNETLoader": [
+      "unet_name",
+      "weight_dtype"
+    ],
+    "VAEDecode": [
+      "samples",
+      "vae"
+    ],
+    "VAELoader": [
+      "vae_name"
+    ],
+    "WanFirstLastFrameToVideo": [
+      "batch_size",
+      "end_image",
+      "height",
+      "length",
+      "negative",
+      "positive",
+      "start_image",
+      "vae",
+      "width"
+    ]
+  },
+  "runtime": {
+    "comfy_remote_port": 8188,
+    "local_tunnel_port": 8189,
+    "ram_target_bytes": 68719476736,
+    "vram_target_bytes": 25769803776
+  },
+  "schema": "anime-video-studio/i1-profile/v1",
+  "source_inventory": {
+    "path": "manifests/P1.wan22-14b-ab.sources.json",
+    "schema": "anime-studio/ab-source-inventory/v1",
+    "sha256": "0663214ec3f19b1b2a10cfb614d9f03686eec3d952803157af4582068090bcb9"
+  },
+  "workflow": {
+    "api_path": "workflows/P1/wan22-14b-shot02-alley-v1.api.json",
+    "api_sha256": "9b1967e71da48263c53acc226a0a51daa39378a5cbcfbaa7ceb3988b2969c55d",
+    "ui_path": "workflows/P1/wan22-14b-shot02-alley-v1.ui.derived.json",
+    "ui_sha256": "33832e4b5d92e1e83cc937efe8d018558bf2045497037757cb5fc026a433017d",
+    "ui_status": "DERIVED_FROM_API_NOT_LIVE_VERIFIED"
+  }
+}

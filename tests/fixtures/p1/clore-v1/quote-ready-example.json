@@ -1,0 +1,14 @@
+{
+  "price_per_day": "13.20",
+  "price_per_hour": "0.55",
+  "price_per_minute": "0.00911458",
+  "currency": "USD-Blockchain",
+  "creation_fee": "0.10",
+  "mandatory_other_fees": "0.00",
+  "reserve": "0.05",
+  "fresh_verified": true,
+  "fees_known": true,
+  "tax_fx_known": true,
+  "min_rental_hours": "1",
+  "provider_fee_percent": "5"
+}

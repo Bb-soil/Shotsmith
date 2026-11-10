@@ -1,0 +1,65 @@
+{
+  "schema": "anime-video-studio/p1-clore-profile/v1",
+  "provider": "clore",
+  "base_url": "https://api.clore.ai/v1/",
+  "api_key_env": "CLORE_API_KEY",
+  "server_id": 112213,
+  "expected_currency": "USD-Blockchain",
+  "session_cap_usd": "1.00",
+  "duration_seconds": 3600,
+  "planned_cancel_offset_seconds": 3300,
+  "readback_timeout_seconds": 120,
+  "quote": {
+    "price_per_day": "13.20",
+    "price_per_hour": "0.55",
+    "price_per_minute": "0.00911458",
+    "currency": "USD-Blockchain",
+    "creation_fee": "0.10",
+    "mandatory_other_fees": "0.00",
+    "reserve": "0.05",
+    "fresh_verified": false,
+    "fees_known": true,
+    "tax_fx_known": true,
+    "min_rental_hours": null,
+    "provider_fee_percent": null
+  },
+  "launch": {
+    "status": "BLOCKED",
+    "blockers": [
+      "quote is not a fresh verified quote",
+      "minimum rental duration is unknown",
+      "6-hour minimum is unresolved"
+    ]
+  },
+  "startup": {
+    "image_tag": "runpod/pytorch:1.4.1-cu1281-torch291-ubuntu2404",
+    "expected_digest": "sha256:8ab44dd05aad6ecc18e77814a20f7fb0ee706c4696663cf1bf912b0f5b457e9f",
+    "digest_support": "UNKNOWN",
+    "entrypoint_override": "UNKNOWN",
+    "ssh": {
+      "port": 22,
+      "public_key_only": true,
+      "private_key_value_allowed": false
+    },
+    "comfyui": {
+      "bind": "127.0.0.1",
+      "port": 8188,
+      "local_tunnel_port": 8189,
+      "public_http_allowed": false
+    }
+  },
+  "export": {
+    "local_dir": "data/p1-clore-<order-id>",
+    "items": [
+      "output.mp4",
+      "seed.txt",
+      "workflow.json",
+      "model-hashes.json",
+      "runtime.json",
+      "logs.txt",
+      "cost-ledger.json"
+    ],
+    "ephemeral_after_terminate": true
+  },
+  "note": "Offline example only. No account, secret, order, image or GPU access. Not launch permission."
+}

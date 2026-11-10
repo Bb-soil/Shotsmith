@@ -1,0 +1,72 @@
+{
+  "_meta": {
+    "status": "TEMPLATE_NOT_EXECUTABLE",
+    "note": "Synthetic fixture for schema/binding/contract tests only. It is not a verified Wan/ComfyUI workflow, contains placeholder weights and must never be sent to a live worker. Replace it only after pinning the official API workflow, model checksums, licenses and a readiness manifest."
+  },
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "TEMPLATE_NOT_EXECUTABLE.png"
+    }
+  },
+  "2": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "neutral anime portrait, fixed test frame",
+      "clip": ["4", 0]
+    }
+  },
+  "3": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "low quality, extra limbs",
+      "clip": ["4", 0]
+    }
+  },
+  "4": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "TEMPLATE_NOT_EXECUTABLE"
+    }
+  },
+  "5": {
+    "class_type": "WanImageToVideo",
+    "inputs": {
+      "width": 704,
+      "height": 1280,
+      "length": 81,
+      "fps": 24,
+      "image": ["1", 0],
+      "positive": ["2", 0],
+      "negative": ["3", 0],
+      "model": ["4", 0]
+    }
+  },
+  "6": {
+    "class_type": "KSampler",
+    "inputs": {
+      "seed": 424242,
+      "steps": 20,
+      "cfg": 5.0,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1.0,
+      "model": ["5", 0],
+      "positive": ["2", 0],
+      "negative": ["3", 0],
+      "latent_image": ["5", 0]
+    }
+  },
+  "7": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": ["6", 0],
+      "frame_rate": 24,
+      "loop_count": 0,
+      "filename_prefix": "TEMPLATE_NOT_EXECUTABLE/p1",
+      "format": "video/h264-mp4",
+      "pingpong": false,
+      "save_output": true
+    }
+  }
+}

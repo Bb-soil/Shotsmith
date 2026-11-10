@@ -1,0 +1,36 @@
+{
+  "status": "OFFLINE_TEMPORAL_DENSITY_EXPERIMENT_NOT_GPU_VERIFIED",
+  "jobs": [
+    {
+      "source": "wan22-14b-shot01-ab-v1.api.draft.json",
+      "source_sha256": "365dcd7c1c9f3b191e625e82d3cacedaa8145774a63a399ad4f4ddee71d456ed",
+      "draft": "wan22-14b-shot01-ab-v2-24fps.api.draft.json",
+      "draft_sha256": "aa11cf01548b1580507c0b3516ca1a6789c00ff74d5868f9a4bd4173c6ddd127",
+      "changes": [
+        "length81to121",
+        "fps16to24",
+        "output_prefix"
+      ],
+      "frames": 121,
+      "fps": 24,
+      "duration_seconds": 5.041666666666667,
+      "live_run": false
+    },
+    {
+      "source": "wan22-14b-shot01-wind-v1.api.json",
+      "source_sha256": "cb380d25fe7f4918d0f52137d382fe6db348d545119b85d137ec066e231406dc",
+      "draft": "wan22-14b-shot01-wind-v2-24fps.api.draft.json",
+      "draft_sha256": "799c7d0651c658e55d21a9bf23ab3b9622eb70ea503763bed450a5cc3edad333",
+      "changes": [
+        "length81to121",
+        "fps16to24",
+        "output_prefix"
+      ],
+      "frames": 121,
+      "fps": 24,
+      "duration_seconds": 5.041666666666667,
+      "live_run": false
+    }
+  ],
+  "note": "Frame count grows49.4%; VRAM/time/quality are not measured. Source template was81frames/16fps. No guarantee of smoothness."
+}

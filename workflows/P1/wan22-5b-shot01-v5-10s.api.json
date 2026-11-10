@@ -1,0 +1,149 @@
+{
+  "3": {
+    "class_type": "KSampler",
+    "inputs": {
+      "seed": 424242,
+      "steps": 20,
+      "cfg": 5,
+      "sampler_name": "uni_pc",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "48",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "55",
+        0
+      ]
+    }
+  },
+  "6": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "A continuous ten-second 2D anime medium shot, waist-up, fixed camera. The same dark-haired girl stands on the right against the same Japanese houses. Her torso and shoulders keep the same pose throughout the shot. During the first three seconds she SLOWLY turns her head toward the camera. The turn unfolds gradually over several seconds, with clearly visible intermediate head angles, easing gently to a stop. During the next two seconds her neutral face SLOWLY develops a clearly visible surprised expression: her eyebrows gradually rise, her eyes gently widen, and her lips slowly part. She then HOLDS the surprised expression and her gaze toward the camera for the rest of the shot, long enough to see it clearly. After her face has turned, a gentle steady breeze from behind her gradually grows. Her long hair slowly lifts away from her back and shoulders and drifts toward screen left. Broad locks of hair move in smooth, slow flowing waves; the tips follow with a soft delay. Her red tie sways gently in the same direction. The hair movement is clearly visible but calm and unhurried, with long graceful arcs. During the final two seconds the breeze gradually fades to stillness. Her hair slowly descends toward her shoulders, makes one small settling sway, and comes nearly to rest by the final frame. Fluid continuous animation, stable facial identity, clean anime outlines and cel shading, stationary background.",
+      "clip": [
+        "38",
+        0
+      ]
+    }
+  },
+  "7": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "fast head turn, sudden head snap, abrupt expression change, split-second expression, rapid facial switching, body rotation, changing body pose, sudden gust, violent wind, jerky hair, fast whipping hair, chaotic fluttering, wind increasing at the end, frozen hair throughout, slideshow, face distortion, identity change, screaming, talking, giant mouth, deformed eyes, detached hair, extra limbs, camera movement, zoom, cuts, flicker, text, watermark",
+      "clip": [
+        "38",
+        0
+      ]
+    }
+  },
+  "8": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "39",
+        0
+      ]
+    }
+  },
+  "37": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "wan2.2_ti2v_5B_fp16.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "38": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "type": "wan",
+      "device": "cpu"
+    }
+  },
+  "39": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "wan2.2_vae.safetensors"
+    }
+  },
+  "48": {
+    "class_type": "ModelSamplingSD3",
+    "inputs": {
+      "model": [
+        "37",
+        0
+      ],
+      "shift": 8
+    }
+  },
+  "55": {
+    "class_type": "Wan22ImageToVideoLatent",
+    "inputs": {
+      "vae": [
+        "39",
+        0
+      ],
+      "width": 704,
+      "height": 1280,
+      "length": 241,
+      "batch_size": 1,
+      "start_image": [
+        "56",
+        0
+      ]
+    }
+  },
+  "56": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "shot-01-start-v3-704x1280.png"
+    }
+  },
+  "57": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ],
+      "fps": 24
+    }
+  },
+  "58": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "57",
+        0
+      ],
+      "filename_prefix": "anime-studio/P1/shot-01-v5-10s",
+      "format": "mp4",
+      "format.codec": "h264",
+      "format.codec.encoding": "auto"
+    }
+  },
+  "_meta": {
+    "status": "MANUAL_V5_10S_REQUESTED",
+    "based_on": "wan22-5b-shot01-v4-10s.api.json",
+    "changes": [
+      "positive_prompt_slow_turn_expression_hold_soft_wind_settle",
+      "negative_prompt",
+      "output_prefix"
+    ],
+    "note": "Owner requested slow flowing wind fading by the end. Temporal instructions are not guaranteed. Same 241frames/24fps, source frame, seed, model and sampler."
+  }
+}

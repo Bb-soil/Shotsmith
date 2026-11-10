@@ -1,0 +1,58 @@
+{
+  "schema": "anime-video-studio/p1-manifest/v1",
+  "manifest_id": "P1-TEMPLATE-NOT-VERIFIED",
+  "status": "DRAFT",
+  "container": {
+    "image": "NOT_VERIFIED",
+    "digest": "NOT_VERIFIED"
+  },
+  "comfyui": {
+    "commit": "NOT_VERIFIED"
+  },
+  "custom_nodes": [
+    {
+      "name": "TEMPLATE_NOT_EXECUTABLE",
+      "commit": "NOT_VERIFIED",
+      "source_url": "https://example.invalid/NOT_VERIFIED"
+    }
+  ],
+  "workflow": {
+    "path": "workflows/P1/p1-i2v.api.template.json",
+    "sha256": "NOT_VERIFIED"
+  },
+  "models": [
+    {
+      "id": "wan2.2-ti2v-5b-candidate",
+      "role": "i2v-candidate-NOT_VERIFIED",
+      "source_url": "https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B",
+      "revision": "NOT_VERIFIED",
+      "filename": "NOT_VERIFIED",
+      "sha256": "NOT_VERIFIED",
+      "license_url": "NOT_VERIFIED",
+      "license_reviewed_at": null,
+      "hosted_use": "NOT_VERIFIED",
+      "commercial_use_status": "unknown"
+    }
+  ],
+  "runtime": {
+    "gpu": "NOT_VERIFIED",
+    "vram_gb": null,
+    "ram_gb": null,
+    "disk_gb": null,
+    "estimated": true
+  },
+  "live_plan": {
+    "source_image": "data/p1-inputs/source.png",
+    "source_image_sha256": "NOT_VERIFIED",
+    "width": 704,
+    "height": 1280,
+    "frames": 81,
+    "fps": 24,
+    "seed": 424242,
+    "generations": 1,
+    "automatic_retries": 0,
+    "max_session_minutes": 60,
+    "proposed_budget_cap_rub": 500
+  },
+  "checked_at": null
+}

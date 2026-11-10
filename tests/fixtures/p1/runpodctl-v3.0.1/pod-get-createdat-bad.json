@@ -1,0 +1,14 @@
+{
+  "id": "pod-abc123",
+  "name": "fixture-bad-createdat",
+  "desiredStatus": "EXITED",
+  "createdAt": "2026-10-21T12:00:00",
+  "imageName": "fixture/image:1",
+  "gpuCount": 1,
+  "volumeInGb": 0,
+  "containerDiskInGb": 20,
+  "runtimeStatus": "stopped",
+  "ssh": {
+    "error": "pod not ready: pod is stopped"
+  }
+}

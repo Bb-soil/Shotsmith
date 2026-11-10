@@ -1,0 +1,101 @@
+{
+  "schema": "anime-studio/keyframe-plan/v2",
+  "title": "Car approach — fixed camera then new angle (generic object fixture)",
+  "language": "ru",
+  "subject": {
+    "label": "car",
+    "kind": "object"
+  },
+  "first_frame": "tests/fixtures/kf1/car-frame.png",
+  "character_reference": "tests/fixtures/kf1/car-frame.png",
+  "background_reference": null,
+  "style": "Clean automotive production still. Preserve the supplied rendering style; do not add sharpening, filters or new quality parameters.",
+  "scenes": [
+    {
+      "id": "shot-01",
+      "description": "A car on a road approaches a fixed camera.",
+      "a": {
+        "source": "first_frame"
+      },
+      "b": {
+        "source": "generate_from_scene_a",
+        "shot_mode": "continue_shot",
+        "reference_roles": [
+          "anchor",
+          "character_reference"
+        ],
+        "invariants": [
+          "camera",
+          "background",
+          "identity",
+          "style"
+        ],
+        "allowed_changes": [
+          "position",
+          "apparent_scale"
+        ],
+        "edit_instruction": "Keep the camera fixed. The same car approaches the camera; change only its position and apparent scale."
+      }
+    },
+    {
+      "id": "shot-02",
+      "description": "A new angle of the same car.",
+      "a": {
+        "source": "generate_from_previous_b",
+        "shot_mode": "new_shot",
+        "reference_roles": [
+          "character_reference"
+        ],
+        "invariants": [
+          "identity",
+          "style"
+        ],
+        "allowed_changes": [
+          "camera",
+          "environment",
+          "position"
+        ],
+        "edit_instruction": "Establish a new camera angle of the same car. Keep its identity and rendering style; do not copy the previous framing."
+      },
+      "b": {
+        "source": "generate_from_scene_a",
+        "shot_mode": "continue_shot",
+        "reference_roles": [
+          "anchor",
+          "character_reference"
+        ],
+        "invariants": [
+          "camera",
+          "lens",
+          "background",
+          "environment",
+          "identity",
+          "style",
+          "lighting"
+        ],
+        "allowed_changes": [
+          "position",
+          "apparent_scale"
+        ],
+        "require_anchor_approval": true,
+        "edit_instruction": "Keep precisely the fixed camera. The same car moves closer; change only its position and apparent scale."
+      }
+    }
+  ],
+  "output_policy": {
+    "candidate_geometry": [
+      704,
+      1280
+    ],
+    "video_geometry": [
+      448,
+      816
+    ],
+    "normalization": "explicit proportional contain/crop, never stretch",
+    "overwrite_inputs": false,
+    "automatic_video_submit": false
+  },
+  "generation_limit": 3,
+  "seed": 424242,
+  "notes": "Offline object fixture only. No anime/human char defaults; no visual-quality or duplicate-fix claim."
+}

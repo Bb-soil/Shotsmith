@@ -1,0 +1,5 @@
+{
+  "id": "pod-abc123",
+  "name": "fixture-missing-fields",
+  "imageName": "fixture/image:1"
+}

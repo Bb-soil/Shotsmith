@@ -1,0 +1,207 @@
+{
+  "72": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "type": "wan",
+      "device": "default"
+    }
+  },
+  "73": {
+    "class_type": "ModelSamplingSD3",
+    "inputs": {
+      "model": [
+        "76",
+        0
+      ],
+      "shift": 8.000000000000002
+    }
+  },
+  "74": {
+    "class_type": "ModelSamplingSD3",
+    "inputs": {
+      "model": [
+        "77",
+        0
+      ],
+      "shift": 8
+    }
+  },
+  "76": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "77": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "78": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "72",
+        0
+      ],
+      "text": "long motionless opening, stop-and-start motion, abrupt head snap, head oscillation, exaggerated open mouth, talking, screaming, violent gust, rapid hair whipping, frantic fluttering, detached hair, changing hair length, face morphing, identity change, warped eyes, melting features, motion blur, ghosting, flickering linework, camera shake, zoom, cuts, changing buildings, text, watermark"
+    }
+  },
+  "79": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "wan_2.1_vae.safetensors"
+    }
+  },
+  "81": {
+    "class_type": "WanFirstLastFrameToVideo",
+    "inputs": {
+      "positive": [
+        "90",
+        0
+      ],
+      "negative": [
+        "78",
+        0
+      ],
+      "vae": [
+        "79",
+        0
+      ],
+      "start_image": [
+        "80",
+        0
+      ],
+      "end_image": [
+        "89",
+        0
+      ],
+      "width": 448,
+      "height": 816,
+      "length": 121,
+      "batch_size": 1
+    }
+  },
+  "85": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "87",
+        0
+      ],
+      "vae": [
+        "79",
+        0
+      ]
+    }
+  },
+  "86": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "images": [
+        "85",
+        0
+      ],
+      "fps": 24
+    }
+  },
+  "90": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "72",
+        0
+      ],
+      "text": "One continuous anime shot. The girl reacts promptly to something near the camera: her eyes lead a controlled head turn toward the viewer. While her head is still turning, her eyebrows lift, her eyes widen and her lips part slightly in a clear, restrained surprise. Her upper body makes a small natural settling motion, then steadies. Before the turn finishes, a soft breeze from behind begins carrying the loose lengths of her hair toward screen left. Broad groups of hair lift gradually away from her shoulders in slow, fluid arcs; the tips follow with a gentle delay. Her tie moves slightly in the same direction. She reaches her camera-facing surprised expression early and keeps looking toward the viewer while the hair continues moving. The breeze peaks around the middle, then subsides; the hair lowers with a soft settling sway as she arrives at the final image. Overlapping natural motion, crisp stable anime linework, fixed camera, consistent houses and daylight."
+    }
+  },
+  "83": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "86",
+        0
+      ],
+      "filename_prefix": "anime-studio/P1/shot-01-dynamic-v1",
+      "format": "mp4",
+      "format.codec": "h264",
+      "format.codec.encoding": "auto"
+    }
+  },
+  "80": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "shot-01-start-v3-704x1280.png"
+    }
+  },
+  "89": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "shot-01-keyframe-B-v1.png"
+    }
+  },
+  "84": {
+    "class_type": "KSamplerAdvanced",
+    "inputs": {
+      "model": [
+        "73",
+        0
+      ],
+      "positive": [
+        "81",
+        0
+      ],
+      "negative": [
+        "81",
+        1
+      ],
+      "latent_image": [
+        "81",
+        2
+      ],
+      "add_noise": "enable",
+      "noise_seed": 424242,
+      "steps": 20,
+      "cfg": 4,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": 0,
+      "end_at_step": 10,
+      "return_with_leftover_noise": "enable"
+    }
+  },
+  "87": {
+    "class_type": "KSamplerAdvanced",
+    "inputs": {
+      "model": [
+        "74",
+        0
+      ],
+      "positive": [
+        "81",
+        0
+      ],
+      "negative": [
+        "81",
+        1
+      ],
+      "latent_image": [
+        "84",
+        0
+      ],
+      "add_noise": "disable",
+      "noise_seed": 0,
+      "steps": 20,
+      "cfg": 4,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": 10,
+      "end_at_step": 10000,
+      "return_with_leftover_noise": "disable"
+    }
+  }
+}

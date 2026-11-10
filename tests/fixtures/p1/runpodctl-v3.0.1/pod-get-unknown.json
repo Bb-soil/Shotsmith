@@ -1,0 +1,15 @@
+{
+  "id": "pod-abc123",
+  "name": "fixture-unknown",
+  "desiredStatus": "RUNNING",
+  "createdAt": "2026-10-21T14:00:00+02:00",
+  "imageName": "fixture/image:1",
+  "gpuCount": 1,
+  "volumeInGb": 0,
+  "containerDiskInGb": 20,
+  "runtimeStatus": "unknown",
+  "runtimeStatusReason": "runtime_unavailable",
+  "ssh": {
+    "error": "pod not ready: runtime status unavailable"
+  }
+}

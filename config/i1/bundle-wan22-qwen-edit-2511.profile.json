@@ -1,0 +1,2052 @@
+{
+  "base_torch": {
+    "expected_cuda_prefix": "12.8",
+    "expected_prefix": "2.9",
+    "image": "runpod/pytorch:1.4.1-cu1281-torch291-ubuntu2404",
+    "never_reinstall": true
+  },
+  "comfyui": {
+    "commit": "7a28332047b6af638dc6c7f72ef3481a718769fd",
+    "expected_imports": [
+      "comfy",
+      "nodes"
+    ],
+    "source_url": "https://github.com/Comfy-Org/ComfyUI"
+  },
+  "disk": {
+    "install_overhead_bytes": 6442450944,
+    "reserve_bytes": 5368709120
+  },
+  "display_name": "Wan 2.2 14B + Qwen Image Edit 2511 (shared pinned runtime)",
+  "model_set": "wan22-14b-ab+keyframes-qwen-edit-2511",
+  "models": [
+    {
+      "binary_verified_at_derivation": false,
+      "id": "wan2.2_i2v_high_noise_14B_fp8_scaled",
+      "license": "apache-2.0",
+      "license_source": "https://huggingface.co/Comfy-Org/Wan-2.2/blob/ee6f4a40737a995bf5818954cfce6d59443b0f04/README.md",
+      "name": "wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+      "repo_id": "Comfy-Org/Wan-2.2",
+      "revision": "ee6f4a40737a995bf5818954cfce6d59443b0f04",
+      "role": "diffusion",
+      "sha256": "6122e79d55e0f235698d11d657f3b196c5273c830da00b2b013c5a048d5e6a42",
+      "size_bytes": 14294742832,
+      "source_path": "split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+      "target": "models/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan-2.2/resolve/ee6f4a40737a995bf5818954cfce6d59443b0f04/split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors"
+    },
+    {
+      "binary_verified_at_derivation": false,
+      "id": "wan2.2_i2v_low_noise_14B_fp8_scaled",
+      "license": "apache-2.0",
+      "license_source": "https://huggingface.co/Comfy-Org/Wan-2.2/blob/ee6f4a40737a995bf5818954cfce6d59443b0f04/README.md",
+      "name": "wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+      "repo_id": "Comfy-Org/Wan-2.2",
+      "revision": "ee6f4a40737a995bf5818954cfce6d59443b0f04",
+      "role": "diffusion",
+      "sha256": "5471a457b6ac404202a5fbe6c11595a3d5641fc766b00f38763f72303fffc21e",
+      "size_bytes": 14294742832,
+      "source_path": "split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+      "target": "models/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan-2.2/resolve/ee6f4a40737a995bf5818954cfce6d59443b0f04/split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors"
+    },
+    {
+      "binary_verified_at_derivation": false,
+      "id": "wan_2.1_vae",
+      "license": "apache-2.0",
+      "license_source": "https://huggingface.co/Comfy-Org/Wan-2.2/blob/ee6f4a40737a995bf5818954cfce6d59443b0f04/README.md",
+      "name": "wan_2.1_vae.safetensors",
+      "repo_id": "Comfy-Org/Wan-2.2",
+      "revision": "ee6f4a40737a995bf5818954cfce6d59443b0f04",
+      "role": "vae",
+      "sha256": "2fc39d31359a4b0a64f55876d8ff7fa8d780956ae2cb13463b0223e15148976b",
+      "size_bytes": 253815318,
+      "source_path": "split_files/vae/wan_2.1_vae.safetensors",
+      "target": "models/vae/wan_2.1_vae.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan-2.2/resolve/ee6f4a40737a995bf5818954cfce6d59443b0f04/split_files/vae/wan_2.1_vae.safetensors"
+    },
+    {
+      "binary_verified_at_derivation": false,
+      "id": "umt5_xxl_fp8_e4m3fn_scaled",
+      "license": "apache-2.0",
+      "license_source": "https://huggingface.co/Comfy-Org/Wan-2.1/blob/123acf1cc74bccbb9bfff8ac1ee72edc08c2341d/README.md",
+      "name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "repo_id": "Comfy-Org/Wan-2.1",
+      "revision": "123acf1cc74bccbb9bfff8ac1ee72edc08c2341d",
+      "role": "text_encoder",
+      "sha256": "c3355d30191f1f066b26d93fba017ae9809dce6c627dda5f6a66eaa651204f68",
+      "size_bytes": 6735906897,
+      "source_path": "split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "target": "models/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan-2.1/resolve/123acf1cc74bccbb9bfff8ac1ee72edc08c2341d/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors"
+    },
+    {
+      "binary_verified_at_derivation": false,
+      "id": "qwen_image_edit_2511_fp8mixed",
+      "license": "apache-2.0",
+      "license_source": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit/blob/f68ace85e60b4a02a323e394253731947657b7d2/README.md",
+      "name": "qwen_image_edit_2511_fp8mixed.safetensors",
+      "repo_id": "Comfy-Org/Qwen-Image-Edit",
+      "revision": "f68ace85e60b4a02a323e394253731947657b7d2",
+      "role": "diffusion",
+      "sha256": "c9fdc158e46d3b61ef75f21ae866ca2fe808bf4a53643120d1c1e87c19280a4e",
+      "size_bytes": 20533762817,
+      "source_path": "split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors",
+      "target": "models/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit/resolve/f68ace85e60b4a02a323e394253731947657b7d2/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors"
+    },
+    {
+      "binary_verified_at_derivation": false,
+      "id": "qwen_2.5_vl_7b_fp8_scaled",
+      "license": "apache-2.0",
+      "license_source": "https://huggingface.co/Comfy-Org/Qwen-Image/blob/1f12b17be14c89b026c51a91d67c32f84bb047bc/README.md",
+      "name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "repo_id": "Comfy-Org/Qwen-Image",
+      "revision": "1f12b17be14c89b026c51a91d67c32f84bb047bc",
+      "role": "text_encoder",
+      "sha256": "cb5636d852a0ea6a9075ab1bef496c0db7aef13c02350571e388aea959c5c0b4",
+      "size_bytes": 9384670680,
+      "source_path": "split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "target": "models/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors"
+    },
+    {
+      "binary_verified_at_derivation": false,
+      "id": "qwen_image_vae",
+      "license": "apache-2.0",
+      "license_source": "https://huggingface.co/Comfy-Org/Qwen-Image/blob/1f12b17be14c89b026c51a91d67c32f84bb047bc/README.md",
+      "name": "qwen_image_vae.safetensors",
+      "repo_id": "Comfy-Org/Qwen-Image",
+      "revision": "1f12b17be14c89b026c51a91d67c32f84bb047bc",
+      "role": "vae",
+      "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+      "size_bytes": 253806246,
+      "source_path": "split_files/vae/qwen_image_vae.safetensors",
+      "target": "models/vae/qwen_image_vae.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors"
+    }
+  ],
+  "models_policy": {
+    "allowed_roles": [
+      "diffusion",
+      "text_encoder",
+      "vae"
+    ],
+    "expected_count": 7,
+    "mode": "allowlist",
+    "role_counts": {
+      "diffusion": 3,
+      "text_encoder": 2,
+      "vae": 2
+    }
+  },
+  "primary_workflow": "wan",
+  "profile_id": "bundle-wan22-qwen-edit-2511",
+  "runtime": {
+    "comfy_remote_port": 8188,
+    "local_tunnel_port": 8189,
+    "ram_target_bytes": 68719476736,
+    "vram_target_bytes": 25769803776
+  },
+  "schema": "anime-video-studio/i1-profile/v2",
+  "source_inventory": {
+    "paths": [
+      "manifests/P1.wan22-14b-ab.sources.json",
+      "manifests/K1.qwen-edit-2511.sources.draft.json"
+    ]
+  },
+  "workflows": {
+    "qwen-1": {
+      "api_path": "workflows/K1/qwen-edit-2511-1ref.api.json",
+      "api_sha256": "6aad3cd3ae4c646b24b57b9352d07b4e4b81528596e0f3208be40aa5576dd896",
+      "graph_inputs": [
+        {
+          "class": "LoadImage",
+          "input": "image",
+          "kind": "literal",
+          "node_id": "1",
+          "value": "k1-scene-anchor.png"
+        },
+        {
+          "class": "ImageScale",
+          "input": "crop",
+          "kind": "literal",
+          "node_id": "10",
+          "value": "center"
+        },
+        {
+          "class": "ImageScale",
+          "input": "height",
+          "kind": "literal",
+          "node_id": "10",
+          "value": 1280
+        },
+        {
+          "class": "ImageScale",
+          "input": "image",
+          "kind": "link",
+          "node_id": "10",
+          "source_class": "LoadImage",
+          "source_node": "1",
+          "source_slot": 0
+        },
+        {
+          "class": "ImageScale",
+          "input": "upscale_method",
+          "kind": "literal",
+          "node_id": "10",
+          "value": "lanczos"
+        },
+        {
+          "class": "ImageScale",
+          "input": "width",
+          "kind": "literal",
+          "node_id": "10",
+          "value": 704
+        },
+        {
+          "class": "UNETLoader",
+          "input": "unet_name",
+          "kind": "literal",
+          "node_id": "20",
+          "value": "qwen_image_edit_2511_fp8mixed.safetensors"
+        },
+        {
+          "class": "UNETLoader",
+          "input": "weight_dtype",
+          "kind": "literal",
+          "node_id": "20",
+          "value": "default"
+        },
+        {
+          "class": "CLIPLoader",
+          "input": "clip_name",
+          "kind": "literal",
+          "node_id": "21",
+          "value": "qwen_2.5_vl_7b_fp8_scaled.safetensors"
+        },
+        {
+          "class": "CLIPLoader",
+          "input": "device",
+          "kind": "literal",
+          "node_id": "21",
+          "value": "cpu"
+        },
+        {
+          "class": "CLIPLoader",
+          "input": "type",
+          "kind": "literal",
+          "node_id": "21",
+          "value": "qwen_image"
+        },
+        {
+          "class": "VAELoader",
+          "input": "vae_name",
+          "kind": "literal",
+          "node_id": "22",
+          "value": "qwen_image_vae.safetensors"
+        },
+        {
+          "class": "ModelSamplingAuraFlow",
+          "input": "model",
+          "kind": "link",
+          "node_id": "23",
+          "source_class": "UNETLoader",
+          "source_node": "20",
+          "source_slot": 0
+        },
+        {
+          "class": "ModelSamplingAuraFlow",
+          "input": "shift",
+          "kind": "literal",
+          "node_id": "23",
+          "value": 3.1
+        },
+        {
+          "class": "CFGNorm",
+          "input": "model",
+          "kind": "link",
+          "node_id": "24",
+          "source_class": "ModelSamplingAuraFlow",
+          "source_node": "23",
+          "source_slot": 0
+        },
+        {
+          "class": "CFGNorm",
+          "input": "strength",
+          "kind": "literal",
+          "node_id": "24",
+          "value": 1.0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "clip",
+          "kind": "link",
+          "node_id": "30",
+          "source_class": "CLIPLoader",
+          "source_node": "21",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "image1",
+          "kind": "link",
+          "node_id": "30",
+          "source_class": "ImageScale",
+          "source_node": "10",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "prompt",
+          "kind": "literal",
+          "node_id": "30",
+          "value": "Create one clean anime production keyframe. Picture 1 is the scene anchor: preserve its drawing style, heroine identity, clothes, location, lighting and camera geometry unless the edit instruction explicitly changes them. Apply only this edit: KF1_BIND_REQUIRED. Keep natural anatomy, a short natural neck, consistent head-to-body proportions, coherent perspective and grounded feet. Output one single image without panels, captions or duplicates."
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "vae",
+          "kind": "link",
+          "node_id": "30",
+          "source_class": "VAELoader",
+          "source_node": "22",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "clip",
+          "kind": "link",
+          "node_id": "31",
+          "source_class": "CLIPLoader",
+          "source_node": "21",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "image1",
+          "kind": "link",
+          "node_id": "31",
+          "source_class": "ImageScale",
+          "source_node": "10",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "prompt",
+          "kind": "literal",
+          "node_id": "31",
+          "value": "collage, contact sheet, multiple panels, duplicate person, text, watermark, changed clothes, changed character identity, stretched neck, malformed hands, distorted limbs, inconsistent perspective, blurry face"
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "vae",
+          "kind": "link",
+          "node_id": "31",
+          "source_class": "VAELoader",
+          "source_node": "22",
+          "source_slot": 0
+        },
+        {
+          "class": "VAEEncode",
+          "input": "pixels",
+          "kind": "link",
+          "node_id": "40",
+          "source_class": "ImageScale",
+          "source_node": "10",
+          "source_slot": 0
+        },
+        {
+          "class": "VAEEncode",
+          "input": "vae",
+          "kind": "link",
+          "node_id": "40",
+          "source_class": "VAELoader",
+          "source_node": "22",
+          "source_slot": 0
+        },
+        {
+          "class": "KSampler",
+          "input": "cfg",
+          "kind": "literal",
+          "node_id": "50",
+          "value": 4.0
+        },
+        {
+          "class": "KSampler",
+          "input": "denoise",
+          "kind": "literal",
+          "node_id": "50",
+          "value": 1.0
+        },
+        {
+          "class": "KSampler",
+          "input": "latent_image",
+          "kind": "link",
+          "node_id": "50",
+          "source_class": "VAEEncode",
+          "source_node": "40",
+          "source_slot": 0
+        },
+        {
+          "class": "KSampler",
+          "input": "model",
+          "kind": "link",
+          "node_id": "50",
+          "source_class": "CFGNorm",
+          "source_node": "24",
+          "source_slot": 0
+        },
+        {
+          "class": "KSampler",
+          "input": "negative",
+          "kind": "link",
+          "node_id": "50",
+          "source_class": "TextEncodeQwenImageEditPlus",
+          "source_node": "31",
+          "source_slot": 0
+        },
+        {
+          "class": "KSampler",
+          "input": "positive",
+          "kind": "link",
+          "node_id": "50",
+          "source_class": "TextEncodeQwenImageEditPlus",
+          "source_node": "30",
+          "source_slot": 0
+        },
+        {
+          "class": "KSampler",
+          "input": "sampler_name",
+          "kind": "literal",
+          "node_id": "50",
+          "value": "euler"
+        },
+        {
+          "class": "KSampler",
+          "input": "scheduler",
+          "kind": "literal",
+          "node_id": "50",
+          "value": "simple"
+        },
+        {
+          "class": "KSampler",
+          "input": "seed",
+          "kind": "literal",
+          "node_id": "50",
+          "value": 424242
+        },
+        {
+          "class": "KSampler",
+          "input": "steps",
+          "kind": "literal",
+          "node_id": "50",
+          "value": 40
+        },
+        {
+          "class": "VAEDecode",
+          "input": "samples",
+          "kind": "link",
+          "node_id": "60",
+          "source_class": "KSampler",
+          "source_node": "50",
+          "source_slot": 0
+        },
+        {
+          "class": "VAEDecode",
+          "input": "vae",
+          "kind": "link",
+          "node_id": "60",
+          "source_class": "VAELoader",
+          "source_node": "22",
+          "source_slot": 0
+        },
+        {
+          "class": "SaveImage",
+          "input": "filename_prefix",
+          "kind": "literal",
+          "node_id": "70",
+          "value": "anime-studio/kf1/KF1_BIND_REQUIRED"
+        },
+        {
+          "class": "SaveImage",
+          "input": "images",
+          "kind": "link",
+          "node_id": "70",
+          "source_class": "VAEDecode",
+          "source_node": "60",
+          "source_slot": 0
+        }
+      ],
+      "node_classes": {
+        "1": "LoadImage",
+        "10": "ImageScale",
+        "20": "UNETLoader",
+        "21": "CLIPLoader",
+        "22": "VAELoader",
+        "23": "ModelSamplingAuraFlow",
+        "24": "CFGNorm",
+        "30": "TextEncodeQwenImageEditPlus",
+        "31": "TextEncodeQwenImageEditPlus",
+        "40": "VAEEncode",
+        "50": "KSampler",
+        "60": "VAEDecode",
+        "70": "SaveImage"
+      },
+      "output": {
+        "class": "SaveImage",
+        "dynamic": false,
+        "keys": [
+          "images"
+        ],
+        "media_type": "image/png",
+        "node_id": "70"
+      },
+      "required_classes": [
+        "CFGNorm",
+        "CLIPLoader",
+        "ImageScale",
+        "KSampler",
+        "LoadImage",
+        "ModelSamplingAuraFlow",
+        "SaveImage",
+        "TextEncodeQwenImageEditPlus",
+        "UNETLoader",
+        "VAEDecode",
+        "VAEEncode",
+        "VAELoader"
+      ],
+      "required_inputs": {
+        "CFGNorm": [
+          "model",
+          "strength"
+        ],
+        "CLIPLoader": [
+          "clip_name",
+          "device",
+          "type"
+        ],
+        "ImageScale": [
+          "crop",
+          "height",
+          "image",
+          "upscale_method",
+          "width"
+        ],
+        "KSampler": [
+          "cfg",
+          "denoise",
+          "latent_image",
+          "model",
+          "negative",
+          "positive",
+          "sampler_name",
+          "scheduler",
+          "seed",
+          "steps"
+        ],
+        "LoadImage": [
+          "image"
+        ],
+        "ModelSamplingAuraFlow": [
+          "model",
+          "shift"
+        ],
+        "SaveImage": [
+          "filename_prefix",
+          "images"
+        ],
+        "TextEncodeQwenImageEditPlus": [
+          "clip",
+          "image1",
+          "prompt",
+          "vae"
+        ],
+        "UNETLoader": [
+          "unet_name",
+          "weight_dtype"
+        ],
+        "VAEDecode": [
+          "samples",
+          "vae"
+        ],
+        "VAEEncode": [
+          "pixels",
+          "vae"
+        ],
+        "VAELoader": [
+          "vae_name"
+        ]
+      }
+    },
+    "qwen-2": {
+      "api_path": "workflows/K1/qwen-edit-2511-2ref.api.json",
+      "api_sha256": "2121e79ec4dd52d70fee80a7194a8f614f36973e8cdb3b722071e0982c9678d3",
+      "graph_inputs": [
+        {
+          "class": "LoadImage",
+          "input": "image",
+          "kind": "literal",
+          "node_id": "1",
+          "value": "k1-scene-anchor.png"
+        },
+        {
+          "class": "ImageScale",
+          "input": "crop",
+          "kind": "literal",
+          "node_id": "10",
+          "value": "center"
+        },
+        {
+          "class": "ImageScale",
+          "input": "height",
+          "kind": "literal",
+          "node_id": "10",
+          "value": 1280
+        },
+        {
+          "class": "ImageScale",
+          "input": "image",
+          "kind": "link",
+          "node_id": "10",
+          "source_class": "LoadImage",
+          "source_node": "1",
+          "source_slot": 0
+        },
+        {
+          "class": "ImageScale",
+          "input": "upscale_method",
+          "kind": "literal",
+          "node_id": "10",
+          "value": "lanczos"
+        },
+        {
+          "class": "ImageScale",
+          "input": "width",
+          "kind": "literal",
+          "node_id": "10",
+          "value": 704
+        },
+        {
+          "class": "LoadImage",
+          "input": "image",
+          "kind": "literal",
+          "node_id": "2",
+          "value": "k1-character-reference.png"
+        },
+        {
+          "class": "UNETLoader",
+          "input": "unet_name",
+          "kind": "literal",
+          "node_id": "20",
+          "value": "qwen_image_edit_2511_fp8mixed.safetensors"
+        },
+        {
+          "class": "UNETLoader",
+          "input": "weight_dtype",
+          "kind": "literal",
+          "node_id": "20",
+          "value": "default"
+        },
+        {
+          "class": "CLIPLoader",
+          "input": "clip_name",
+          "kind": "literal",
+          "node_id": "21",
+          "value": "qwen_2.5_vl_7b_fp8_scaled.safetensors"
+        },
+        {
+          "class": "CLIPLoader",
+          "input": "device",
+          "kind": "literal",
+          "node_id": "21",
+          "value": "cpu"
+        },
+        {
+          "class": "CLIPLoader",
+          "input": "type",
+          "kind": "literal",
+          "node_id": "21",
+          "value": "qwen_image"
+        },
+        {
+          "class": "VAELoader",
+          "input": "vae_name",
+          "kind": "literal",
+          "node_id": "22",
+          "value": "qwen_image_vae.safetensors"
+        },
+        {
+          "class": "ModelSamplingAuraFlow",
+          "input": "model",
+          "kind": "link",
+          "node_id": "23",
+          "source_class": "UNETLoader",
+          "source_node": "20",
+          "source_slot": 0
+        },
+        {
+          "class": "ModelSamplingAuraFlow",
+          "input": "shift",
+          "kind": "literal",
+          "node_id": "23",
+          "value": 3.1
+        },
+        {
+          "class": "CFGNorm",
+          "input": "model",
+          "kind": "link",
+          "node_id": "24",
+          "source_class": "ModelSamplingAuraFlow",
+          "source_node": "23",
+          "source_slot": 0
+        },
+        {
+          "class": "CFGNorm",
+          "input": "strength",
+          "kind": "literal",
+          "node_id": "24",
+          "value": 1.0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "clip",
+          "kind": "link",
+          "node_id": "30",
+          "source_class": "CLIPLoader",
+          "source_node": "21",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "image1",
+          "kind": "link",
+          "node_id": "30",
+          "source_class": "ImageScale",
+          "source_node": "10",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "image2",
+          "kind": "link",
+          "node_id": "30",
+          "source_class": "LoadImage",
+          "source_node": "2",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "prompt",
+          "kind": "literal",
+          "node_id": "30",
+          "value": "Create one clean anime production keyframe. Picture 1 is the scene anchor: preserve its drawing style, heroine identity, clothes, location, lighting and camera geometry unless the edit instruction explicitly changes them. Apply only this edit: KF1_BIND_REQUIRED. Keep natural anatomy, a short natural neck, consistent head-to-body proportions, coherent perspective and grounded feet. Output one single image without panels, captions or duplicates. Picture 2 defines the same heroine identity, hair and outfit. Transfer no sheet layout or reference background."
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "vae",
+          "kind": "link",
+          "node_id": "30",
+          "source_class": "VAELoader",
+          "source_node": "22",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "clip",
+          "kind": "link",
+          "node_id": "31",
+          "source_class": "CLIPLoader",
+          "source_node": "21",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "image1",
+          "kind": "link",
+          "node_id": "31",
+          "source_class": "ImageScale",
+          "source_node": "10",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "image2",
+          "kind": "link",
+          "node_id": "31",
+          "source_class": "LoadImage",
+          "source_node": "2",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "prompt",
+          "kind": "literal",
+          "node_id": "31",
+          "value": "collage, contact sheet, multiple panels, duplicate person, text, watermark, changed clothes, changed character identity, stretched neck, malformed hands, distorted limbs, inconsistent perspective, blurry face"
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "vae",
+          "kind": "link",
+          "node_id": "31",
+          "source_class": "VAELoader",
+          "source_node": "22",
+          "source_slot": 0
+        },
+        {
+          "class": "VAEEncode",
+          "input": "pixels",
+          "kind": "link",
+          "node_id": "40",
+          "source_class": "ImageScale",
+          "source_node": "10",
+          "source_slot": 0
+        },
+        {
+          "class": "VAEEncode",
+          "input": "vae",
+          "kind": "link",
+          "node_id": "40",
+          "source_class": "VAELoader",
+          "source_node": "22",
+          "source_slot": 0
+        },
+        {
+          "class": "KSampler",
+          "input": "cfg",
+          "kind": "literal",
+          "node_id": "50",
+          "value": 4.0
+        },
+        {
+          "class": "KSampler",
+          "input": "denoise",
+          "kind": "literal",
+          "node_id": "50",
+          "value": 1.0
+        },
+        {
+          "class": "KSampler",
+          "input": "latent_image",
+          "kind": "link",
+          "node_id": "50",
+          "source_class": "VAEEncode",
+          "source_node": "40",
+          "source_slot": 0
+        },
+        {
+          "class": "KSampler",
+          "input": "model",
+          "kind": "link",
+          "node_id": "50",
+          "source_class": "CFGNorm",
+          "source_node": "24",
+          "source_slot": 0
+        },
+        {
+          "class": "KSampler",
+          "input": "negative",
+          "kind": "link",
+          "node_id": "50",
+          "source_class": "TextEncodeQwenImageEditPlus",
+          "source_node": "31",
+          "source_slot": 0
+        },
+        {
+          "class": "KSampler",
+          "input": "positive",
+          "kind": "link",
+          "node_id": "50",
+          "source_class": "TextEncodeQwenImageEditPlus",
+          "source_node": "30",
+          "source_slot": 0
+        },
+        {
+          "class": "KSampler",
+          "input": "sampler_name",
+          "kind": "literal",
+          "node_id": "50",
+          "value": "euler"
+        },
+        {
+          "class": "KSampler",
+          "input": "scheduler",
+          "kind": "literal",
+          "node_id": "50",
+          "value": "simple"
+        },
+        {
+          "class": "KSampler",
+          "input": "seed",
+          "kind": "literal",
+          "node_id": "50",
+          "value": 424242
+        },
+        {
+          "class": "KSampler",
+          "input": "steps",
+          "kind": "literal",
+          "node_id": "50",
+          "value": 40
+        },
+        {
+          "class": "VAEDecode",
+          "input": "samples",
+          "kind": "link",
+          "node_id": "60",
+          "source_class": "KSampler",
+          "source_node": "50",
+          "source_slot": 0
+        },
+        {
+          "class": "VAEDecode",
+          "input": "vae",
+          "kind": "link",
+          "node_id": "60",
+          "source_class": "VAELoader",
+          "source_node": "22",
+          "source_slot": 0
+        },
+        {
+          "class": "SaveImage",
+          "input": "filename_prefix",
+          "kind": "literal",
+          "node_id": "70",
+          "value": "anime-studio/kf1/KF1_BIND_REQUIRED"
+        },
+        {
+          "class": "SaveImage",
+          "input": "images",
+          "kind": "link",
+          "node_id": "70",
+          "source_class": "VAEDecode",
+          "source_node": "60",
+          "source_slot": 0
+        }
+      ],
+      "node_classes": {
+        "1": "LoadImage",
+        "10": "ImageScale",
+        "2": "LoadImage",
+        "20": "UNETLoader",
+        "21": "CLIPLoader",
+        "22": "VAELoader",
+        "23": "ModelSamplingAuraFlow",
+        "24": "CFGNorm",
+        "30": "TextEncodeQwenImageEditPlus",
+        "31": "TextEncodeQwenImageEditPlus",
+        "40": "VAEEncode",
+        "50": "KSampler",
+        "60": "VAEDecode",
+        "70": "SaveImage"
+      },
+      "output": {
+        "class": "SaveImage",
+        "dynamic": false,
+        "keys": [
+          "images"
+        ],
+        "media_type": "image/png",
+        "node_id": "70"
+      },
+      "required_classes": [
+        "CFGNorm",
+        "CLIPLoader",
+        "ImageScale",
+        "KSampler",
+        "LoadImage",
+        "ModelSamplingAuraFlow",
+        "SaveImage",
+        "TextEncodeQwenImageEditPlus",
+        "UNETLoader",
+        "VAEDecode",
+        "VAEEncode",
+        "VAELoader"
+      ],
+      "required_inputs": {
+        "CFGNorm": [
+          "model",
+          "strength"
+        ],
+        "CLIPLoader": [
+          "clip_name",
+          "device",
+          "type"
+        ],
+        "ImageScale": [
+          "crop",
+          "height",
+          "image",
+          "upscale_method",
+          "width"
+        ],
+        "KSampler": [
+          "cfg",
+          "denoise",
+          "latent_image",
+          "model",
+          "negative",
+          "positive",
+          "sampler_name",
+          "scheduler",
+          "seed",
+          "steps"
+        ],
+        "LoadImage": [
+          "image"
+        ],
+        "ModelSamplingAuraFlow": [
+          "model",
+          "shift"
+        ],
+        "SaveImage": [
+          "filename_prefix",
+          "images"
+        ],
+        "TextEncodeQwenImageEditPlus": [
+          "clip",
+          "image1",
+          "image2",
+          "prompt",
+          "vae"
+        ],
+        "UNETLoader": [
+          "unet_name",
+          "weight_dtype"
+        ],
+        "VAEDecode": [
+          "samples",
+          "vae"
+        ],
+        "VAEEncode": [
+          "pixels",
+          "vae"
+        ],
+        "VAELoader": [
+          "vae_name"
+        ]
+      }
+    },
+    "qwen-3": {
+      "api_path": "workflows/K1/qwen-edit-2511-3ref.api.json",
+      "api_sha256": "3316a187fab0c70a456002fe36f7551bc06b265cb25599db88f692928a363380",
+      "graph_inputs": [
+        {
+          "class": "LoadImage",
+          "input": "image",
+          "kind": "literal",
+          "node_id": "1",
+          "value": "k1-scene-anchor.png"
+        },
+        {
+          "class": "ImageScale",
+          "input": "crop",
+          "kind": "literal",
+          "node_id": "10",
+          "value": "center"
+        },
+        {
+          "class": "ImageScale",
+          "input": "height",
+          "kind": "literal",
+          "node_id": "10",
+          "value": 1280
+        },
+        {
+          "class": "ImageScale",
+          "input": "image",
+          "kind": "link",
+          "node_id": "10",
+          "source_class": "LoadImage",
+          "source_node": "1",
+          "source_slot": 0
+        },
+        {
+          "class": "ImageScale",
+          "input": "upscale_method",
+          "kind": "literal",
+          "node_id": "10",
+          "value": "lanczos"
+        },
+        {
+          "class": "ImageScale",
+          "input": "width",
+          "kind": "literal",
+          "node_id": "10",
+          "value": 704
+        },
+        {
+          "class": "LoadImage",
+          "input": "image",
+          "kind": "literal",
+          "node_id": "2",
+          "value": "k1-character-reference.png"
+        },
+        {
+          "class": "UNETLoader",
+          "input": "unet_name",
+          "kind": "literal",
+          "node_id": "20",
+          "value": "qwen_image_edit_2511_fp8mixed.safetensors"
+        },
+        {
+          "class": "UNETLoader",
+          "input": "weight_dtype",
+          "kind": "literal",
+          "node_id": "20",
+          "value": "default"
+        },
+        {
+          "class": "CLIPLoader",
+          "input": "clip_name",
+          "kind": "literal",
+          "node_id": "21",
+          "value": "qwen_2.5_vl_7b_fp8_scaled.safetensors"
+        },
+        {
+          "class": "CLIPLoader",
+          "input": "device",
+          "kind": "literal",
+          "node_id": "21",
+          "value": "cpu"
+        },
+        {
+          "class": "CLIPLoader",
+          "input": "type",
+          "kind": "literal",
+          "node_id": "21",
+          "value": "qwen_image"
+        },
+        {
+          "class": "VAELoader",
+          "input": "vae_name",
+          "kind": "literal",
+          "node_id": "22",
+          "value": "qwen_image_vae.safetensors"
+        },
+        {
+          "class": "ModelSamplingAuraFlow",
+          "input": "model",
+          "kind": "link",
+          "node_id": "23",
+          "source_class": "UNETLoader",
+          "source_node": "20",
+          "source_slot": 0
+        },
+        {
+          "class": "ModelSamplingAuraFlow",
+          "input": "shift",
+          "kind": "literal",
+          "node_id": "23",
+          "value": 3.1
+        },
+        {
+          "class": "CFGNorm",
+          "input": "model",
+          "kind": "link",
+          "node_id": "24",
+          "source_class": "ModelSamplingAuraFlow",
+          "source_node": "23",
+          "source_slot": 0
+        },
+        {
+          "class": "CFGNorm",
+          "input": "strength",
+          "kind": "literal",
+          "node_id": "24",
+          "value": 1.0
+        },
+        {
+          "class": "LoadImage",
+          "input": "image",
+          "kind": "literal",
+          "node_id": "3",
+          "value": "k1-background-reference.png"
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "clip",
+          "kind": "link",
+          "node_id": "30",
+          "source_class": "CLIPLoader",
+          "source_node": "21",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "image1",
+          "kind": "link",
+          "node_id": "30",
+          "source_class": "ImageScale",
+          "source_node": "10",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "image2",
+          "kind": "link",
+          "node_id": "30",
+          "source_class": "LoadImage",
+          "source_node": "2",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "image3",
+          "kind": "link",
+          "node_id": "30",
+          "source_class": "LoadImage",
+          "source_node": "3",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "prompt",
+          "kind": "literal",
+          "node_id": "30",
+          "value": "Create one clean anime production keyframe. Picture 1 is the scene anchor: preserve its drawing style, heroine identity, clothes, location, lighting and camera geometry unless the edit instruction explicitly changes them. Apply only this edit: KF1_BIND_REQUIRED. Keep natural anatomy, a short natural neck, consistent head-to-body proportions, coherent perspective and grounded feet. Output one single image without panels, captions or duplicates. Picture 2 defines the same heroine identity, hair and outfit. Transfer no sheet layout or reference background. Picture 3 defines the requested environment; match its architecture while keeping the instructed camera and character placement."
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "vae",
+          "kind": "link",
+          "node_id": "30",
+          "source_class": "VAELoader",
+          "source_node": "22",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "clip",
+          "kind": "link",
+          "node_id": "31",
+          "source_class": "CLIPLoader",
+          "source_node": "21",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "image1",
+          "kind": "link",
+          "node_id": "31",
+          "source_class": "ImageScale",
+          "source_node": "10",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "image2",
+          "kind": "link",
+          "node_id": "31",
+          "source_class": "LoadImage",
+          "source_node": "2",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "image3",
+          "kind": "link",
+          "node_id": "31",
+          "source_class": "LoadImage",
+          "source_node": "3",
+          "source_slot": 0
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "prompt",
+          "kind": "literal",
+          "node_id": "31",
+          "value": "collage, contact sheet, multiple panels, duplicate person, text, watermark, changed clothes, changed character identity, stretched neck, malformed hands, distorted limbs, inconsistent perspective, blurry face"
+        },
+        {
+          "class": "TextEncodeQwenImageEditPlus",
+          "input": "vae",
+          "kind": "link",
+          "node_id": "31",
+          "source_class": "VAELoader",
+          "source_node": "22",
+          "source_slot": 0
+        },
+        {
+          "class": "VAEEncode",
+          "input": "pixels",
+          "kind": "link",
+          "node_id": "40",
+          "source_class": "ImageScale",
+          "source_node": "10",
+          "source_slot": 0
+        },
+        {
+          "class": "VAEEncode",
+          "input": "vae",
+          "kind": "link",
+          "node_id": "40",
+          "source_class": "VAELoader",
+          "source_node": "22",
+          "source_slot": 0
+        },
+        {
+          "class": "KSampler",
+          "input": "cfg",
+          "kind": "literal",
+          "node_id": "50",
+          "value": 4.0
+        },
+        {
+          "class": "KSampler",
+          "input": "denoise",
+          "kind": "literal",
+          "node_id": "50",
+          "value": 1.0
+        },
+        {
+          "class": "KSampler",
+          "input": "latent_image",
+          "kind": "link",
+          "node_id": "50",
+          "source_class": "VAEEncode",
+          "source_node": "40",
+          "source_slot": 0
+        },
+        {
+          "class": "KSampler",
+          "input": "model",
+          "kind": "link",
+          "node_id": "50",
+          "source_class": "CFGNorm",
+          "source_node": "24",
+          "source_slot": 0
+        },
+        {
+          "class": "KSampler",
+          "input": "negative",
+          "kind": "link",
+          "node_id": "50",
+          "source_class": "TextEncodeQwenImageEditPlus",
+          "source_node": "31",
+          "source_slot": 0
+        },
+        {
+          "class": "KSampler",
+          "input": "positive",
+          "kind": "link",
+          "node_id": "50",
+          "source_class": "TextEncodeQwenImageEditPlus",
+          "source_node": "30",
+          "source_slot": 0
+        },
+        {
+          "class": "KSampler",
+          "input": "sampler_name",
+          "kind": "literal",
+          "node_id": "50",
+          "value": "euler"
+        },
+        {
+          "class": "KSampler",
+          "input": "scheduler",
+          "kind": "literal",
+          "node_id": "50",
+          "value": "simple"
+        },
+        {
+          "class": "KSampler",
+          "input": "seed",
+          "kind": "literal",
+          "node_id": "50",
+          "value": 424242
+        },
+        {
+          "class": "KSampler",
+          "input": "steps",
+          "kind": "literal",
+          "node_id": "50",
+          "value": 40
+        },
+        {
+          "class": "VAEDecode",
+          "input": "samples",
+          "kind": "link",
+          "node_id": "60",
+          "source_class": "KSampler",
+          "source_node": "50",
+          "source_slot": 0
+        },
+        {
+          "class": "VAEDecode",
+          "input": "vae",
+          "kind": "link",
+          "node_id": "60",
+          "source_class": "VAELoader",
+          "source_node": "22",
+          "source_slot": 0
+        },
+        {
+          "class": "SaveImage",
+          "input": "filename_prefix",
+          "kind": "literal",
+          "node_id": "70",
+          "value": "anime-studio/kf1/KF1_BIND_REQUIRED"
+        },
+        {
+          "class": "SaveImage",
+          "input": "images",
+          "kind": "link",
+          "node_id": "70",
+          "source_class": "VAEDecode",
+          "source_node": "60",
+          "source_slot": 0
+        }
+      ],
+      "node_classes": {
+        "1": "LoadImage",
+        "10": "ImageScale",
+        "2": "LoadImage",
+        "20": "UNETLoader",
+        "21": "CLIPLoader",
+        "22": "VAELoader",
+        "23": "ModelSamplingAuraFlow",
+        "24": "CFGNorm",
+        "3": "LoadImage",
+        "30": "TextEncodeQwenImageEditPlus",
+        "31": "TextEncodeQwenImageEditPlus",
+        "40": "VAEEncode",
+        "50": "KSampler",
+        "60": "VAEDecode",
+        "70": "SaveImage"
+      },
+      "output": {
+        "class": "SaveImage",
+        "dynamic": false,
+        "keys": [
+          "images"
+        ],
+        "media_type": "image/png",
+        "node_id": "70"
+      },
+      "required_classes": [
+        "CFGNorm",
+        "CLIPLoader",
+        "ImageScale",
+        "KSampler",
+        "LoadImage",
+        "ModelSamplingAuraFlow",
+        "SaveImage",
+        "TextEncodeQwenImageEditPlus",
+        "UNETLoader",
+        "VAEDecode",
+        "VAEEncode",
+        "VAELoader"
+      ],
+      "required_inputs": {
+        "CFGNorm": [
+          "model",
+          "strength"
+        ],
+        "CLIPLoader": [
+          "clip_name",
+          "device",
+          "type"
+        ],
+        "ImageScale": [
+          "crop",
+          "height",
+          "image",
+          "upscale_method",
+          "width"
+        ],
+        "KSampler": [
+          "cfg",
+          "denoise",
+          "latent_image",
+          "model",
+          "negative",
+          "positive",
+          "sampler_name",
+          "scheduler",
+          "seed",
+          "steps"
+        ],
+        "LoadImage": [
+          "image"
+        ],
+        "ModelSamplingAuraFlow": [
+          "model",
+          "shift"
+        ],
+        "SaveImage": [
+          "filename_prefix",
+          "images"
+        ],
+        "TextEncodeQwenImageEditPlus": [
+          "clip",
+          "image1",
+          "image2",
+          "image3",
+          "prompt",
+          "vae"
+        ],
+        "UNETLoader": [
+          "unet_name",
+          "weight_dtype"
+        ],
+        "VAEDecode": [
+          "samples",
+          "vae"
+        ],
+        "VAEEncode": [
+          "pixels",
+          "vae"
+        ],
+        "VAELoader": [
+          "vae_name"
+        ]
+      }
+    },
+    "wan": {
+      "api_path": "workflows/P1/wan22-14b-shot02-alley-v1.api.json",
+      "api_sha256": "9b1967e71da48263c53acc226a0a51daa39378a5cbcfbaa7ceb3988b2969c55d",
+      "graph_inputs": [
+        {
+          "class": "CLIPLoader",
+          "input": "clip_name",
+          "kind": "literal",
+          "node_id": "72"
+        },
+        {
+          "class": "CLIPLoader",
+          "input": "device",
+          "kind": "literal",
+          "node_id": "72"
+        },
+        {
+          "class": "CLIPLoader",
+          "input": "type",
+          "kind": "literal",
+          "node_id": "72"
+        },
+        {
+          "class": "ModelSamplingSD3",
+          "input": "model",
+          "kind": "link",
+          "node_id": "73",
+          "source_class": "UNETLoader",
+          "source_node": "76",
+          "source_slot": 0
+        },
+        {
+          "class": "ModelSamplingSD3",
+          "input": "shift",
+          "kind": "literal",
+          "node_id": "73"
+        },
+        {
+          "class": "ModelSamplingSD3",
+          "input": "model",
+          "kind": "link",
+          "node_id": "74",
+          "source_class": "UNETLoader",
+          "source_node": "77",
+          "source_slot": 0
+        },
+        {
+          "class": "ModelSamplingSD3",
+          "input": "shift",
+          "kind": "literal",
+          "node_id": "74"
+        },
+        {
+          "class": "UNETLoader",
+          "input": "unet_name",
+          "kind": "literal",
+          "node_id": "76"
+        },
+        {
+          "class": "UNETLoader",
+          "input": "weight_dtype",
+          "kind": "literal",
+          "node_id": "76"
+        },
+        {
+          "class": "UNETLoader",
+          "input": "unet_name",
+          "kind": "literal",
+          "node_id": "77"
+        },
+        {
+          "class": "UNETLoader",
+          "input": "weight_dtype",
+          "kind": "literal",
+          "node_id": "77"
+        },
+        {
+          "class": "CLIPTextEncode",
+          "input": "clip",
+          "kind": "link",
+          "node_id": "78",
+          "source_class": "CLIPLoader",
+          "source_node": "72",
+          "source_slot": 0
+        },
+        {
+          "class": "CLIPTextEncode",
+          "input": "text",
+          "kind": "literal",
+          "node_id": "78"
+        },
+        {
+          "class": "VAELoader",
+          "input": "vae_name",
+          "kind": "literal",
+          "node_id": "79"
+        },
+        {
+          "class": "LoadImage",
+          "input": "image",
+          "kind": "literal",
+          "node_id": "80"
+        },
+        {
+          "class": "WanFirstLastFrameToVideo",
+          "input": "batch_size",
+          "kind": "literal",
+          "node_id": "81"
+        },
+        {
+          "class": "WanFirstLastFrameToVideo",
+          "input": "end_image",
+          "kind": "link",
+          "node_id": "81",
+          "source_class": "LoadImage",
+          "source_node": "89",
+          "source_slot": 0
+        },
+        {
+          "class": "WanFirstLastFrameToVideo",
+          "input": "height",
+          "kind": "literal",
+          "node_id": "81"
+        },
+        {
+          "class": "WanFirstLastFrameToVideo",
+          "input": "length",
+          "kind": "literal",
+          "node_id": "81"
+        },
+        {
+          "class": "WanFirstLastFrameToVideo",
+          "input": "negative",
+          "kind": "link",
+          "node_id": "81",
+          "source_class": "CLIPTextEncode",
+          "source_node": "78",
+          "source_slot": 0
+        },
+        {
+          "class": "WanFirstLastFrameToVideo",
+          "input": "positive",
+          "kind": "link",
+          "node_id": "81",
+          "source_class": "CLIPTextEncode",
+          "source_node": "90",
+          "source_slot": 0
+        },
+        {
+          "class": "WanFirstLastFrameToVideo",
+          "input": "start_image",
+          "kind": "link",
+          "node_id": "81",
+          "source_class": "LoadImage",
+          "source_node": "80",
+          "source_slot": 0
+        },
+        {
+          "class": "WanFirstLastFrameToVideo",
+          "input": "vae",
+          "kind": "link",
+          "node_id": "81",
+          "source_class": "VAELoader",
+          "source_node": "79",
+          "source_slot": 0
+        },
+        {
+          "class": "WanFirstLastFrameToVideo",
+          "input": "width",
+          "kind": "literal",
+          "node_id": "81"
+        },
+        {
+          "class": "SaveVideo",
+          "input": "filename_prefix",
+          "kind": "literal",
+          "node_id": "83"
+        },
+        {
+          "class": "SaveVideo",
+          "input": "format",
+          "kind": "literal",
+          "node_id": "83"
+        },
+        {
+          "class": "SaveVideo",
+          "input": "format.codec",
+          "kind": "dynamic",
+          "node_id": "83"
+        },
+        {
+          "class": "SaveVideo",
+          "input": "format.codec.encoding",
+          "kind": "dynamic",
+          "node_id": "83"
+        },
+        {
+          "class": "SaveVideo",
+          "input": "video",
+          "kind": "link",
+          "node_id": "83",
+          "source_class": "CreateVideo",
+          "source_node": "86",
+          "source_slot": 0
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "add_noise",
+          "kind": "literal",
+          "node_id": "84"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "cfg",
+          "kind": "literal",
+          "node_id": "84"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "end_at_step",
+          "kind": "literal",
+          "node_id": "84"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "latent_image",
+          "kind": "link",
+          "node_id": "84",
+          "source_class": "WanFirstLastFrameToVideo",
+          "source_node": "81",
+          "source_slot": 2
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "model",
+          "kind": "link",
+          "node_id": "84",
+          "source_class": "ModelSamplingSD3",
+          "source_node": "73",
+          "source_slot": 0
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "negative",
+          "kind": "link",
+          "node_id": "84",
+          "source_class": "WanFirstLastFrameToVideo",
+          "source_node": "81",
+          "source_slot": 1
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "noise_seed",
+          "kind": "literal",
+          "node_id": "84"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "positive",
+          "kind": "link",
+          "node_id": "84",
+          "source_class": "WanFirstLastFrameToVideo",
+          "source_node": "81",
+          "source_slot": 0
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "return_with_leftover_noise",
+          "kind": "literal",
+          "node_id": "84"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "sampler_name",
+          "kind": "literal",
+          "node_id": "84"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "scheduler",
+          "kind": "literal",
+          "node_id": "84"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "start_at_step",
+          "kind": "literal",
+          "node_id": "84"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "steps",
+          "kind": "literal",
+          "node_id": "84"
+        },
+        {
+          "class": "VAEDecode",
+          "input": "samples",
+          "kind": "link",
+          "node_id": "85",
+          "source_class": "KSamplerAdvanced",
+          "source_node": "87",
+          "source_slot": 0
+        },
+        {
+          "class": "VAEDecode",
+          "input": "vae",
+          "kind": "link",
+          "node_id": "85",
+          "source_class": "VAELoader",
+          "source_node": "79",
+          "source_slot": 0
+        },
+        {
+          "class": "CreateVideo",
+          "input": "fps",
+          "kind": "literal",
+          "node_id": "86"
+        },
+        {
+          "class": "CreateVideo",
+          "input": "images",
+          "kind": "link",
+          "node_id": "86",
+          "source_class": "VAEDecode",
+          "source_node": "85",
+          "source_slot": 0
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "add_noise",
+          "kind": "literal",
+          "node_id": "87"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "cfg",
+          "kind": "literal",
+          "node_id": "87"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "end_at_step",
+          "kind": "literal",
+          "node_id": "87"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "latent_image",
+          "kind": "link",
+          "node_id": "87",
+          "source_class": "KSamplerAdvanced",
+          "source_node": "84",
+          "source_slot": 0
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "model",
+          "kind": "link",
+          "node_id": "87",
+          "source_class": "ModelSamplingSD3",
+          "source_node": "74",
+          "source_slot": 0
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "negative",
+          "kind": "link",
+          "node_id": "87",
+          "source_class": "WanFirstLastFrameToVideo",
+          "source_node": "81",
+          "source_slot": 1
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "noise_seed",
+          "kind": "literal",
+          "node_id": "87"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "positive",
+          "kind": "link",
+          "node_id": "87",
+          "source_class": "WanFirstLastFrameToVideo",
+          "source_node": "81",
+          "source_slot": 0
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "return_with_leftover_noise",
+          "kind": "literal",
+          "node_id": "87"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "sampler_name",
+          "kind": "literal",
+          "node_id": "87"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "scheduler",
+          "kind": "literal",
+          "node_id": "87"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "start_at_step",
+          "kind": "literal",
+          "node_id": "87"
+        },
+        {
+          "class": "KSamplerAdvanced",
+          "input": "steps",
+          "kind": "literal",
+          "node_id": "87"
+        },
+        {
+          "class": "LoadImage",
+          "input": "image",
+          "kind": "literal",
+          "node_id": "89"
+        },
+        {
+          "class": "CLIPTextEncode",
+          "input": "clip",
+          "kind": "link",
+          "node_id": "90",
+          "source_class": "CLIPLoader",
+          "source_node": "72",
+          "source_slot": 0
+        },
+        {
+          "class": "CLIPTextEncode",
+          "input": "text",
+          "kind": "literal",
+          "node_id": "90"
+        }
+      ],
+      "node_classes": {
+        "72": "CLIPLoader",
+        "73": "ModelSamplingSD3",
+        "74": "ModelSamplingSD3",
+        "76": "UNETLoader",
+        "77": "UNETLoader",
+        "78": "CLIPTextEncode",
+        "79": "VAELoader",
+        "80": "LoadImage",
+        "81": "WanFirstLastFrameToVideo",
+        "83": "SaveVideo",
+        "84": "KSamplerAdvanced",
+        "85": "VAEDecode",
+        "86": "CreateVideo",
+        "87": "KSamplerAdvanced",
+        "89": "LoadImage",
+        "90": "CLIPTextEncode"
+      },
+      "output": {
+        "class": "SaveVideo",
+        "dynamic": true,
+        "keys": [
+          "images"
+        ],
+        "media_type": "video/mp4",
+        "node_id": "83"
+      },
+      "required_classes": [
+        "CLIPLoader",
+        "CLIPTextEncode",
+        "CreateVideo",
+        "KSamplerAdvanced",
+        "LoadImage",
+        "ModelSamplingSD3",
+        "SaveVideo",
+        "UNETLoader",
+        "VAEDecode",
+        "VAELoader",
+        "WanFirstLastFrameToVideo"
+      ],
+      "required_inputs": {
+        "CLIPLoader": [
+          "clip_name",
+          "device",
+          "type"
+        ],
+        "CLIPTextEncode": [
+          "clip",
+          "text"
+        ],
+        "CreateVideo": [
+          "fps",
+          "images"
+        ],
+        "KSamplerAdvanced": [
+          "add_noise",
+          "cfg",
+          "end_at_step",
+          "latent_image",
+          "model",
+          "negative",
+          "noise_seed",
+          "positive",
+          "return_with_leftover_noise",
+          "sampler_name",
+          "scheduler",
+          "start_at_step",
+          "steps"
+        ],
+        "LoadImage": [
+          "image"
+        ],
+        "ModelSamplingSD3": [
+          "model",
+          "shift"
+        ],
+        "SaveVideo": [
+          "filename_prefix",
+          "format",
+          "video"
+        ],
+        "UNETLoader": [
+          "unet_name",
+          "weight_dtype"
+        ],
+        "VAEDecode": [
+          "samples",
+          "vae"
+        ],
+        "VAELoader": [
+          "vae_name"
+        ],
+        "WanFirstLastFrameToVideo": [
+          "batch_size",
+          "end_image",
+          "height",
+          "length",
+          "negative",
+          "positive",
+          "start_image",
+          "vae",
+          "width"
+        ]
+      }
+    }
+  }
+}

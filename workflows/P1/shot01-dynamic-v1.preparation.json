@@ -1,0 +1,51 @@
+{
+  "status": "OFFLINE_STRUCTURE_CHECKED_GPU_NOT_RUN",
+  "workflow": "wan22-14b-shot01-dynamic-v1.api.draft.json",
+  "workflow_sha256": "2964cdc276b18876f2e7f4c16ba4d15191933794f7f6d49c6940f40bdbf6b4cc",
+  "source": "wan22-14b-shot01-ab-v1.api.draft.json",
+  "source_sha256": "365dcd7c1c9f3b191e625e82d3cacedaa8145774a63a399ad4f4ddee71d456ed",
+  "comfy_commit": "7a28332047b6af638dc6c7f72ef3481a718769fd",
+  "model_inventory": "manifests/P1.wan22-14b-ab.sources.json",
+  "nodes": 16,
+  "typed_links_checked": 21,
+  "changed_fields": [
+    "78.inputs.text",
+    "81.inputs.length",
+    "86.inputs.fps",
+    "90.inputs.text",
+    "83.inputs.filename_prefix"
+  ],
+  "assets": [
+    {
+      "node": "80",
+      "repository_path": "assets/frames/derived/shot-01-start-v3-704x1280.png",
+      "comfy_input_name": "shot-01-start-v3-704x1280.png",
+      "sha256": "925eccbe02a49b74bd2e8cd190fe26bd9557628bb996149f093b894136c53add"
+    },
+    {
+      "node": "89",
+      "repository_path": "assets/frames/shot-01-keyframe-B-v1.png",
+      "comfy_input_name": "shot-01-keyframe-B-v1.png",
+      "sha256": "8c1b9a20fb224fe4803e825b78f0334b0293851a48fbaff33eec579ee1d3e0f6"
+    }
+  ],
+  "frames": 121,
+  "fps": 24,
+  "encoded_duration_seconds": 5.041666666666667,
+  "resolution": [
+    448,
+    816
+  ],
+  "seed": 424242,
+  "steps": 20,
+  "cfg": 4,
+  "custom_nodes": [],
+  "generations_submitted": 0,
+  "cloud_calls": 0,
+  "temporal_control": "Only first/last images constrained; intermediate event timings are prompt requests, not graph-enforced keyframes.",
+  "runtime_object_info": "NOT_RUN",
+  "VRAM_and_time": "NOT_RUN",
+  "visual_quality": "NOT_RUN",
+  "changes_are_combined_experiment": true,
+  "original_source_unchanged": true
+}

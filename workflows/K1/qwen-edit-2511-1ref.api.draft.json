@@ -1,0 +1,161 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "k1-scene-anchor.png"
+    }
+  },
+  "10": {
+    "class_type": "ImageScale",
+    "inputs": {
+      "image": [
+        "1",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "width": 704,
+      "height": 1280,
+      "crop": "center"
+    }
+  },
+  "20": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "qwen_image_edit_2511_fp8mixed.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "21": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "type": "qwen_image",
+      "device": "cpu"
+    }
+  },
+  "22": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "qwen_image_vae.safetensors"
+    }
+  },
+  "23": {
+    "class_type": "ModelSamplingAuraFlow",
+    "inputs": {
+      "model": [
+        "20",
+        0
+      ],
+      "shift": 3.1
+    }
+  },
+  "24": {
+    "class_type": "CFGNorm",
+    "inputs": {
+      "model": [
+        "23",
+        0
+      ],
+      "strength": 1.0
+    }
+  },
+  "30": {
+    "class_type": "TextEncodeQwenImageEditPlus",
+    "inputs": {
+      "clip": [
+        "21",
+        0
+      ],
+      "vae": [
+        "22",
+        0
+      ],
+      "image1": [
+        "10",
+        0
+      ],
+      "prompt": "Create one clean anime production keyframe. Picture 1 is the scene anchor: preserve its drawing style, heroine identity, clothes, location, lighting and camera geometry unless the edit instruction explicitly changes them. Apply only this edit: {{EDIT_INSTRUCTION}}. Keep natural anatomy, a short natural neck, consistent head-to-body proportions, coherent perspective and grounded feet. Output one single image without panels, captions or duplicates."
+    }
+  },
+  "31": {
+    "class_type": "TextEncodeQwenImageEditPlus",
+    "inputs": {
+      "clip": [
+        "21",
+        0
+      ],
+      "vae": [
+        "22",
+        0
+      ],
+      "image1": [
+        "10",
+        0
+      ],
+      "prompt": "collage, contact sheet, multiple panels, duplicate person, text, watermark, changed clothes, changed character identity, stretched neck, malformed hands, distorted limbs, inconsistent perspective, blurry face"
+    }
+  },
+  "40": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "10",
+        0
+      ],
+      "vae": [
+        "22",
+        0
+      ]
+    }
+  },
+  "50": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "24",
+        0
+      ],
+      "positive": [
+        "30",
+        0
+      ],
+      "negative": [
+        "31",
+        0
+      ],
+      "latent_image": [
+        "40",
+        0
+      ],
+      "seed": 424242,
+      "steps": 40,
+      "cfg": 4.0,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1.0
+    }
+  },
+  "60": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "50",
+        0
+      ],
+      "vae": [
+        "22",
+        0
+      ]
+    }
+  },
+  "70": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "60",
+        0
+      ],
+      "filename_prefix": "anime-studio/keyframes/DRAFT"
+    }
+  }
+}

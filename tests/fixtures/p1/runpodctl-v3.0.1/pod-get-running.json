@@ -1,0 +1,19 @@
+{
+  "id": "pod-abc123",
+  "name": "fixture-running",
+  "desiredStatus": "RUNNING",
+  "createdAt": "2026-10-21T12:00:00.987654321Z",
+  "imageName": "fixture/image:1",
+  "gpuCount": 1,
+  "volumeInGb": 0,
+  "containerDiskInGb": 20,
+  "uptimeSeconds": 42,
+  "runtimeStatus": "running",
+  "ssh": {
+    "id": "pod-abc123",
+    "name": "fixture-running",
+    "ssh_command": "ssh -i /fixture/key root@192.0.2.10 -p 40022",
+    "ip": "192.0.2.10",
+    "port": 40022
+  }
+}

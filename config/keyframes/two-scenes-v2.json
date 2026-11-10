@@ -1,0 +1,97 @@
+{
+  "schema": "anime-studio/keyframe-plan/v2",
+  "title": "Two linked scenes — generic v2 fixture",
+  "language": "ru",
+  "subject": {
+    "label": "subject",
+    "kind": "generic"
+  },
+  "first_frame": "assets/frames/derived/shot-01-start-v3-704x1280.png",
+  "character_reference": "assets/references/character-sheet.png",
+  "background_reference": null,
+  "style": "Preserve the supplied rendering style; do not add sharpening, filters or new quality parameters.",
+  "scenes": [
+    {
+      "id": "shot-01",
+      "description": "The subject remains in the current shot and changes only as explicitly instructed.",
+      "a": {
+        "source": "first_frame"
+      },
+      "b": {
+        "source": "generate_from_scene_a",
+        "shot_mode": "continue_shot",
+        "reference_roles": [
+          "anchor",
+          "character_reference"
+        ],
+        "invariants": [
+          "camera",
+          "background",
+          "identity",
+          "style"
+        ],
+        "allowed_changes": [
+          "expression",
+          "pose"
+        ],
+        "edit_instruction": "Keep the current camera and background. Change only the subject expression and pose as explicitly described."
+      }
+    },
+    {
+      "id": "shot-02",
+      "description": "A new shot with a new camera and environment.",
+      "a": {
+        "source": "generate_from_previous_b",
+        "shot_mode": "new_shot",
+        "reference_roles": [
+          "character_reference"
+        ],
+        "invariants": [
+          "identity",
+          "style"
+        ],
+        "allowed_changes": [
+          "camera",
+          "environment",
+          "position"
+        ],
+        "edit_instruction": "Establish a new camera and environment. Keep the subject identity and rendering style."
+      },
+      "b": {
+        "source": "generate_from_scene_a",
+        "shot_mode": "continue_shot",
+        "reference_roles": [
+          "anchor",
+          "character_reference"
+        ],
+        "invariants": [
+          "camera",
+          "background",
+          "identity",
+          "style"
+        ],
+        "allowed_changes": [
+          "position",
+          "apparent_scale"
+        ],
+        "edit_instruction": "Keep the camera fixed. Change only subject position and apparent scale as explicitly described."
+      }
+    }
+  ],
+  "output_policy": {
+    "candidate_geometry": [
+      704,
+      1280
+    ],
+    "video_geometry": [
+      448,
+      816
+    ],
+    "normalization": "explicit proportional contain/crop, never stretch",
+    "overwrite_inputs": false,
+    "automatic_video_submit": false
+  },
+  "generation_limit": 3,
+  "seed": 424242,
+  "notes": "Generic offline fixture. It is not a visual-quality claim."
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "anime-video-studio/p1-config/v1",
+  "runtime": {
+    "base_url": "http://127.0.0.1:8188",
+    "token_env": "ANIME_STUDIO_COMFY_TOKEN",
+    "exclusive_worker": true,
+    "client_id": "anime-video-studio-p1",
+    "connect_timeout_seconds": 5.0,
+    "read_timeout_seconds": 30.0,
+    "upload_timeout_seconds": 60.0,
+    "artifact_timeout_seconds": 120.0,
+    "max_upload_bytes": 20971520,
+    "max_artifact_bytes": 104857600,
+    "width": 704,
+    "height": 1280,
+    "frames": 81,
+    "fps": 24,
+    "input_image_path": "data/p1-inputs/source.png",
+    "input_image_suffixes": [".png", ".jpg", ".jpeg", ".webp"],
+    "workflow_path": "workflows/P1/p1-i2v.api.template.json",
+    "workflow_sha256": null,
+    "manifest_path": "manifests/P1.manifest.template.json"
+  },
+  "binding": {
+    "node_types": {
+      "1": "LoadImage",
+      "2": "CLIPTextEncode",
+      "3": "CLIPTextEncode",
+      "5": "WanImageToVideo",
+      "6": "KSampler",
+      "7": "VHS_VideoCombine"
+    },
+    "prompt": {"node": "2", "input": "text"},
+    "seed": {"node": "6", "input": "seed"},
+    "image": {"node": "1", "input": "image"},
+    "width": {"node": "5", "input": "width"},
+    "height": {"node": "5", "input": "height"},
+    "frames": {"node": "5", "input": "length"},
+    "fps": {"node": "5", "input": "fps"},
+    "output": {"node": "7", "keys": ["gifs"]}
+  }
+}

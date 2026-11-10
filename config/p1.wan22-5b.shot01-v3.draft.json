@@ -1,0 +1,79 @@
+{
+  "schema": "anime-video-studio/p1-config/v1",
+  "runtime": {
+    "base_url": "http://127.0.0.1:8189",
+    "token_env": "ANIME_STUDIO_COMFY_TOKEN",
+    "exclusive_worker": true,
+    "client_id": "anime-video-studio-p1-wan22-5b-shot01-v3",
+    "connect_timeout_seconds": 5,
+    "read_timeout_seconds": 30,
+    "upload_timeout_seconds": 60,
+    "artifact_timeout_seconds": 120,
+    "max_upload_bytes": 20971520,
+    "max_artifact_bytes": 104857600,
+    "width": 704,
+    "height": 1280,
+    "frames": 121,
+    "fps": 24,
+    "input_image_path": "assets/frames/derived/shot-01-start-v3-704x1280.png",
+    "input_image_suffixes": [
+      ".png",
+      ".jpg",
+      ".jpeg",
+      ".webp"
+    ],
+    "workflow_path": "workflows/P1/wan22-5b-shot01-v3.api.draft.json",
+    "workflow_sha256": "4f5645d1a6af2c929a6260a609c0d3cf513db99bcd2522649bd02d4b40c52784",
+    "manifest_path": "manifests/P1.wan22-5b-shot01-v3.draft.json"
+  },
+  "binding": {
+    "node_types": {
+      "3": "KSampler",
+      "6": "CLIPTextEncode",
+      "7": "CLIPTextEncode",
+      "8": "VAEDecode",
+      "37": "UNETLoader",
+      "38": "CLIPLoader",
+      "39": "VAELoader",
+      "48": "ModelSamplingSD3",
+      "55": "Wan22ImageToVideoLatent",
+      "56": "LoadImage",
+      "57": "CreateVideo",
+      "58": "SaveVideo"
+    },
+    "prompt": {
+      "node": "6",
+      "input": "text"
+    },
+    "seed": {
+      "node": "3",
+      "input": "seed"
+    },
+    "image": {
+      "node": "56",
+      "input": "image"
+    },
+    "width": {
+      "node": "55",
+      "input": "width"
+    },
+    "height": {
+      "node": "55",
+      "input": "height"
+    },
+    "frames": {
+      "node": "55",
+      "input": "length"
+    },
+    "fps": {
+      "node": "57",
+      "input": "fps"
+    },
+    "output": {
+      "node": "58",
+      "keys": [
+        "images"
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "pod-abc123",
+  "name": "fixture-contradictory",
+  "desiredStatus": "RUNNING",
+  "createdAt": "2026-10-21 12:00:00 +0000 UTC",
+  "imageName": "fixture/image:1",
+  "gpuCount": 1,
+  "volumeInGb": 0,
+  "containerDiskInGb": 20,
+  "runtimeStatus": "stopped",
+  "ssh": {
+    "error": "pod not ready: pod is stopped"
+  }
+}
